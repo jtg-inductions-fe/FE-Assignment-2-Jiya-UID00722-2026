@@ -1,0 +1,18 @@
+import { User } from '../models/user.model';
+
+export const USERS: User[] = [
+  {
+    email: 'admin@test.com',
+    password: 'admin123',
+    role: 'ADMIN',
+    name: 'Admin',
+    avatar: 'assets/avatar/admin.png'
+  },
+  {
+    email: 'owner@test.com',
+    password: 'owner123',
+    role: 'RESTAURANT_OWNER',
+    name: 'Restaurant Owner',
+    avatar: 'assets/avatar/owner.png'
+  }
+];

@@ -1,0 +1,32 @@
+@use '../../../styles/abstracts' as *;
+
+.login-container {
+    height: 100%;
+    @include flex($justify: center, $align: center);
+}
+
+.login-card {
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 8px;
+    @include flex($direction: column, $justify: center, $align: center, $gap: 2rem);
+
+    &__header {
+        @include flex($justify: center, $align: center);
+        text-align: center;
+    }
+
+    &__content {
+        width: 100%;
+        @include flex($direction: column, $justify: center, $align: center, $gap: 2rem);
+    }
+
+    &__field {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    &__button {
+        width: 100%;
+    }
+}
