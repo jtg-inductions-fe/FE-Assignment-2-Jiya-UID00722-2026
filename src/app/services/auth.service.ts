@@ -1,52 +1,59 @@
 import { Injectable } from '@angular/core';
-import { USERS } from '../mock/users';
-import { User } from '../models/user.model';
+import users from '@mock/users.json';
+import { User } from '@models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class AuthService {
+    login(email: string, password: string): boolean {
+        const user = users.find(
+            x => x.email === email && x.password === password,
+        );
 
-  constructor() { }
+        if (!user) {
+            return false;
+        }
 
+        const sessionUser = { ...user };
+        delete (sessionUser as User).password;
 
-  login(email: string, password: string): boolean {
+        localStorage.setItem('currentUser', JSON.stringify(sessionUser));
 
-    const user = USERS.find(x =>
-      x.email === email &&
-      x.password === password
-    );
-
-    if (!user) {
-      return false;
+        return true;
     }
 
-    localStorage.setItem('currentUser', JSON.stringify(user));
-
-    return true;
-  }
-
-  logout() {
-    localStorage.removeItem('currentUser');
-  }
-
-  isLoggedIn(): boolean {
-    return localStorage.getItem('currentUser') !== null;
-  }
-
-  getCurrentUser(): User | null {
-
-    const user = localStorage.getItem('currentUser');
-
-    if (!user) {
-      return null;
+    logout() {
+        localStorage.removeItem('currentUser');
     }
 
-    return JSON.parse(user);
-  }
+    isLoggedIn(): boolean {
+        return localStorage.getItem('currentUser') !== null;
+    }
 
-  getUserRole(): string {
-    return this.getCurrentUser()?.role || '';
-  }
+    getCurrentUser(): User | null {
+        const user = localStorage.getItem('currentUser');
 
+        if (!user) {
+            return null;
+        }
+
+        try {
+            const parsed = JSON.parse(user);
+            if (
+                parsed &&
+                typeof parsed.email === 'string' &&
+                typeof parsed.role === 'string'
+            ) {
+                return parsed as User;
+            }
+            return null;
+        } catch {
+            return null;
+        }
+    }
+
+    getUserRole(): string {
+        return this.getCurrentUser()?.role || '';
+    }
 }
