@@ -8,7 +8,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "ng lint",
-        "format": "prettier --write \"src/**/*.scss\"",
+        "format": "prettier --write \"src/**/*.{ts,html,css,scss,json,md}\"",
         "check": "npm run lint && npm run format",
         "prepare": "husky",
         "pre-commit": "lint-staged"
