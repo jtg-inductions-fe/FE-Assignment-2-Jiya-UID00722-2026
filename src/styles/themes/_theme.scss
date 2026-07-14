@@ -27,8 +27,18 @@ $my-app-theme: mat.define-light-theme(
     )
 );
 
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-app-theme);
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($my-app-theme);
+
+@include mat.card-theme($my-app-theme);
+@include mat.form-field-theme($my-app-theme);
+@include mat.input-theme($my-app-theme);
+@include mat.button-theme($my-app-theme);
+@include mat.icon-theme($my-app-theme);
+@include mat.snack-bar-theme($my-app-theme);
+
 @include mat.typography-hierarchy(typography.$my-custom-typography-config);
