@@ -19,6 +19,10 @@ This is an Assignment for managing restaurants and their customers, orders and d
 - **npm**: Node.js package manager, which comes bundled with Node.js.
 - **Angular CLI 16**
 
+## Installation
+
+Run `npm install` to install the project dependencies.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
