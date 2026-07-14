@@ -1,3 +1,5 @@
+@use '../themes/palette' as palette;
+
 @mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
     display: flex;
     flex-direction: $direction;
@@ -29,8 +31,7 @@ $breakpoints: (
     }
 }
 
-@mixin focus-visible($color: $primary-color, $offset: 4px) {
-    outline: none;
+@mixin focus-visible($color: palette.$green-palette, $offset: 4px) {
     outline: 3px solid $color;
     outline-offset: $offset;
 }
