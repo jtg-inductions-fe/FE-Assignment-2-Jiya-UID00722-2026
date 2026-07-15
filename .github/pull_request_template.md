@@ -14,8 +14,8 @@
 
 ### Required Checklist
 
-[ ] My code follows the style guidelines of this project
-[ ] I have performed a self-review of my code
-[ ] Given proper comments for hard to understands areas
-[ ] If new images are added, then they are in optimal format and are compressed appropriately
-[ ] Changes to reusable components do not break other parts of the code.
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my code
+- [ ] Given proper comments for hard to understands areas
+- [ ] If new images are added, then they are in optimal format and are compressed appropriately
+- [ ] Changes to reusable components do not break other parts of the code.
