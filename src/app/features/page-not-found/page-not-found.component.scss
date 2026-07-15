@@ -1,0 +1,20 @@
+@use 'abstracts/mixins' as *;
+
+.not-found {
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    width: clamp(300px, 60vw, 600px);
+    height: auto;
+  }
+
+  &__heading {
+    margin: 0 0 12px;
+  }
+}
