@@ -1,0 +1,16 @@
+* text=auto
+
+*.ts eol=lf
+*.html eol=lf
+*.css eol=lf
+*.scss eol=lf
+*.json eol=lf
+.editorconfig eol=lf
+
+package-lock.json -diff
+
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg eol=lf
