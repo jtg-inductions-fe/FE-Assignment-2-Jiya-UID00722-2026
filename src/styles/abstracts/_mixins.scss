@@ -1,26 +1,26 @@
 @use 'sass:map';
-@use '../themes/palette' as palette;
+@use 'themes/palette' as palette;
 
 $breakpoints: (
-    sm: 320px,
-    md: 768px,
-    lg: 1024px,
-    xl: 1440px,
+  sm: 320px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
 );
 
 @mixin media-up($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media (min-width: map-get($breakpoints, $breakpoint)) {
-            @content;
-        }
-    } @else {
-        @error "Unknown breakpoint `#{$breakpoint}`. Expected one of: #{map-keys($breakpoints)}";
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
     }
+  } @else {
+    @error "Unknown breakpoint `#{$breakpoint}`. Expected one of: #{map-keys($breakpoints)}";
+  }
 }
 
 $default-green: map.get(palette.$green-palette, 600);
 
 @mixin focus-visible($color: $default-green, $offset: 4px) {
-    outline: 3px solid $color;
-    outline-offset: $offset;
+  outline: 3px solid $color;
+  outline-offset: $offset;
 }
