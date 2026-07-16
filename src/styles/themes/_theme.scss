@@ -1,7 +1,6 @@
 @use '@angular/material' as mat;
 @use 'themes/palette' as palette;
 @use 'themes/typography' as typography;
-@use 'components/snackbar' as snackBar;
 
 @include mat.core();
 
@@ -31,4 +30,3 @@ $my-app-theme: mat.define-light-theme(
 @include mat.snack-bar-theme($my-app-theme);
 
 @include mat.typography-hierarchy(typography.$my-custom-typography-config);
-@include snackBar.theme($my-app-theme);
