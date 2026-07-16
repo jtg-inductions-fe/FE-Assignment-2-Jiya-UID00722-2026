@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <img
+    ngSrc="assets/logo.png"
+    width="50"
+    height="50"
+    alt="Application Logo"
+    class="logo" />
+
+  <ng-container *ngIf="currentUser$ | async as user">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="userMenu"
+      class="avatar-button">
+      <img
+        [ngSrc]="user.avatar"
+        width="50"
+        height="50"
+        alt="User Avatar"
+        class="avatar" />
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <p mat-menu-item>
+        {{ user.name }}
+      </p>
+      <p mat-menu-item>
+        {{ user.email }}
+      </p>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon> logout </mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+  </ng-container>
+</mat-toolbar>

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { User } from '@core/models/user.model';
 import { AssetPaths } from '@core/constants/assets';
@@ -15,6 +16,8 @@ export class AuthService {
   currentUser$ = this.currentUserSubject.asObservable();
 
   constructor(private http: HttpClient) {}
+
+  private router = inject(Router);
 
   login(email: string, password: string): Observable<boolean> {
     return this.http.get<User[]>(AssetPaths.data.USERS).pipe(
@@ -40,6 +43,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {
