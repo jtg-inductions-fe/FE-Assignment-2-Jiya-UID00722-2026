@@ -1,0 +1,26 @@
+.header-toolbar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  border-bottom: 0.83px solid #0000001f;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.avatar-button {
+  padding: 0;
+  .avatar {
+    width: 35px;
+    height: 35px;
+  }
+}
