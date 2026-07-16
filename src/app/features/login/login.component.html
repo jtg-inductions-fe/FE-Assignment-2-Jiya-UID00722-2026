@@ -1,16 +1,16 @@
-<div class="login-container">
-  <mat-card class="login-card" appearance="raised">
-    <mat-card-header class="login-card__header">
-      <mat-card-title>Restaurant Portal</mat-card-title>
+<div class="auth">
+  <mat-card class="auth-card" appearance="raised">
+    <mat-card-header class="auth-card__header">
+      <mat-card-title> Restaurant Portal </mat-card-title>
+
       <mat-card-subtitle>
         Log in to manage orders, menus, and stats.
       </mat-card-subtitle>
     </mat-card-header>
 
-    <mat-card-content class="login-card__content">
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <!-- Email -->
-        <mat-form-field appearance="outline" class="login-card__field">
+    <mat-card-content class="auth-card__body">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field appearance="outline" class="form__field">
           <mat-label>Email Address</mat-label>
 
           <input matInput type="email" formControlName="email" />
@@ -24,8 +24,7 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Password -->
-        <mat-form-field appearance="outline" class="login-card__field">
+        <mat-form-field appearance="outline" class="form__field">
           <mat-label>Password</mat-label>
 
           <input
@@ -56,7 +55,7 @@
         <button
           mat-raised-button
           color="primary"
-          class="login-card__button"
+          class="form__submit"
           type="submit"
           [disabled]="loading">
           {{ loading ? 'LOGGING IN...' : 'LOGIN' }}
