@@ -2,6 +2,8 @@
   --mdc-outlined-button-outline-color: currentColor;
 }
 
-.mat-mdc-raised-button{
-  --mdc-protected-button-container-elevation:  0px 1px 5px 0px #0000001F, 0px 2px 2px 0px #00000024, 0px 3px 1px -2px #00000033;
+.mat-mdc-raised-button {
+  --mdc-protected-button-container-elevation:
+    0px 1px 5px 0px #0000001f, 0px 2px 2px 0px #00000024,
+    0px 3px 1px -2px #00000033;
 }

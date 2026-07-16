@@ -17,11 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    DashboardComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,7 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
