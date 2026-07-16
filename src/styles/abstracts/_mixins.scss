@@ -17,10 +17,3 @@ $breakpoints: (
     @error "Unknown breakpoint `#{$breakpoint}`. Expected one of: #{map-keys($breakpoints)}";
   }
 }
-
-$default-green: map.get(palette.$green-palette, 600);
-
-@mixin focus-visible($color: $default-green, $offset: 4px) {
-  outline: 3px solid $color;
-  outline-offset: $offset;
-}
