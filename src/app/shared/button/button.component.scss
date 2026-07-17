@@ -1,5 +1,13 @@
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
 .mat-mdc-outlined-button {
-  --mdc-outlined-button-outline-color: currentColor;
+  border: 1px solid currentColor;
 }
 
 .mat-mdc-raised-button {

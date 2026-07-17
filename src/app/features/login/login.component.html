@@ -32,16 +32,13 @@
             [type]="hidePassword ? 'password' : 'text'"
             formControlName="password" />
 
-          <button
-            mat-icon-button
+          <app-button
             matSuffix
-            type="button"
+            variant="icon"
+            [icon]="hidePassword ? 'visibility' : 'visibility_off'"
             [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
-            (click)="hidePassword = !hidePassword">
-            <mat-icon>
-              {{ hidePassword ? 'visibility' : 'visibility_off' }}
-            </mat-icon>
-          </button>
+            (btnClick)="hidePassword = !hidePassword">
+          </app-button>
 
           <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
             Password is required
@@ -52,14 +49,14 @@
           </mat-error>
         </mat-form-field>
 
-        <button
-          mat-raised-button
+        <app-button
+          variant="raised"
           color="primary"
-          class="form__submit"
           type="submit"
-          [disabled]="loading">
-          {{ loading ? 'LOGGING IN...' : 'LOGIN' }}
-        </button>
+          class="form__submit"
+          [disabled]="loading"
+          >{{ loading ? 'LOGGING IN...' : 'LOGIN' }}</app-button
+        >
       </form>
     </mat-card-content>
   </mat-card>

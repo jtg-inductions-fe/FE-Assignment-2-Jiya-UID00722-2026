@@ -1,0 +1,33 @@
+<button
+  mat-button
+  [type]="type"
+  [disabled]="disabled"
+  [color]="color"
+  [ngClass]="buttonClasses"
+  (click)="onButtonClick($event)">
+  <span class="button-content">
+    <mat-icon *ngIf="icon && iconPosition === 'prefix' && variant !== 'icon'">
+      {{ icon }}
+    </mat-icon>
+
+    <span class="btn-label" *ngIf="label && variant !== 'icon'">
+      {{ label }}
+    </span>
+
+    <ng-container *ngIf="!label && variant !== 'icon'">
+      <ng-content></ng-content>
+    </ng-container>
+
+    <mat-icon *ngIf="icon && iconPosition === 'suffix' && variant !== 'icon'">
+      {{ icon }}
+    </mat-icon>
+
+    <mat-icon
+      *ngIf="
+        icon &&
+        (variant === 'icon' || variant === 'fab' || variant === 'mini-fab')
+      ">
+      {{ icon }}
+    </mat-icon>
+  </span>
+</button>
