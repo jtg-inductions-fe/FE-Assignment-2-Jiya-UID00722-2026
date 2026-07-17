@@ -19,8 +19,20 @@
 
 .avatar-button {
   padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+
   .avatar {
     width: 35px;
     height: 35px;
   }
+}
+
+.user-details {
+  padding: 1rem 2rem;
+}
+
+.menu-divider {
+  border-top: 0.83px solid #0000001f;
 }

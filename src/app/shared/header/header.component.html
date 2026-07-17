@@ -7,25 +7,26 @@
     class="logo" />
 
   <ng-container *ngIf="currentUser$ | async as user">
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="userMenu"
-      class="avatar-button">
+    <div [matMenuTriggerFor]="userMenu" class="avatar-button">
       <img
         [ngSrc]="user.avatar"
         width="50"
         height="50"
         alt="User Avatar"
         class="avatar" />
-    </button>
+    </div>
 
     <mat-menu #userMenu="matMenu">
-      <p mat-menu-item>
-        {{ user.name }}
-      </p>
-      <p mat-menu-item>
-        {{ user.email }}
-      </p>
+      <div class="user-details">
+        <p class="">
+          {{ user.name }}
+        </p>
+        <p>
+          {{ user.email }}
+        </p>
+      </div>
+
+      <mat-divider class="menu-divider"></mat-divider>
 
       <button mat-menu-item (click)="logout()">
         <mat-icon> logout </mat-icon>
