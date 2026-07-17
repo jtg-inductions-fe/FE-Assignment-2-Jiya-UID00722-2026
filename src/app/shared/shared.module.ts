@@ -14,9 +14,16 @@ import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderComponent } from '@shared/header/header.component';
+import { AvatarComponent } from '@shared/avatar/avatar.component';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent,ErrorPageComponent, HeaderComponent],
+  declarations: [
+    ButtonComponent,
+    InputComponent,
+    ErrorPageComponent,
+    HeaderComponent,
+    AvatarComponent,
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -40,6 +47,7 @@ import { HeaderComponent } from '@shared/header/header.component';
     NgOptimizedImage,
     ErrorPageComponent,
     HeaderComponent,
+    AvatarComponent,
   ],
 })
 export class SharedModule {}
