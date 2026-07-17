@@ -17,6 +17,7 @@ import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
 import { HeaderComponent } from '@shared/header/header.component';
+import { AvatarComponent } from '@shared/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HeaderComponent } from '@shared/header/header.component';
     InputComponent,
     ErrorPageComponent,
     HeaderComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { HeaderComponent } from '@shared/header/header.component';
     NgOptimizedImage,
     ErrorPageComponent,
     HeaderComponent,
+    AvatarComponent,
   ],
   providers: [
     {
