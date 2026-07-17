@@ -1,9 +1,10 @@
 <img
-  [ngSrc]="src"
+  [ngSrc]="currentSrc"
   [alt]="alt"
   width="50"
   height="50"
   class="avatar"
   [class.sm]="size === 'sm'"
   [class.md]="size === 'md'"
-  [class.lg]="size === 'lg'" />
+  [class.lg]="size === 'lg'"
+  (error)="onError()" />
