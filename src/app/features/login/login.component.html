@@ -10,44 +10,17 @@
 
     <mat-card-content class="auth-card__body">
       <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-        <mat-form-field appearance="outline" class="form__field">
-          <mat-label>Email Address</mat-label>
+        <app-input
+          [control]="loginForm.controls.email"
+          label="Email Address"
+          type="email">
+        </app-input>
 
-          <input matInput type="email" formControlName="email" />
-
-          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-            Email is required
-          </mat-error>
-
-          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-            Please enter a valid email
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="form__field">
-          <mat-label>Password</mat-label>
-
-          <input
-            matInput
-            [type]="hidePassword ? 'password' : 'text'"
-            formControlName="password" />
-
-          <app-button
-            matSuffix
-            variant="icon"
-            [icon]="hidePassword ? 'visibility' : 'visibility_off'"
-            [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
-            (btnClick)="hidePassword = !hidePassword">
-          </app-button>
-
-          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-            Password is required
-          </mat-error>
-
-          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
-            Password must be at least 6 characters
-          </mat-error>
-        </mat-form-field>
+        <app-input
+          [control]="loginForm.controls.password"
+          label="Password"
+          type="password">
+        </app-input>
 
         <app-button
           variant="raised"
