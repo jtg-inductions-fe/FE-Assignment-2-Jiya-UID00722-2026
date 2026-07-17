@@ -1,20 +1,18 @@
-@use 'abstracts/mixins' as *;
-
-.not-found {
-  height: 100%;
-  text-align: center;
-  padding: 2rem;
+.error-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
 
   &__image {
     width: clamp(300px, 60vw, 600px);
     height: auto;
   }
 
-  &__heading {
-    margin: 0 0 12px;
+  &__title.mat-headline-2 {
+    margin-bottom: 1rem;
   }
 }
