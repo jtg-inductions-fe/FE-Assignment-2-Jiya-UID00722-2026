@@ -1,12 +1,20 @@
 <mat-toolbar class="header">
-  <a href="/" aria-label="Restaurant Management Home">
-    <img
-      [ngSrc]="imageUrl"
-      width="50"
-      height="50"
-      alt="Restaurant Management Logo"
-      class="header__logo" />
-  </a>
+  <div class="header__brand">
+    <app-button
+      *ngIf="isMobile$ | async"
+      [variant]="ButtonTypes.ButtonVariant.icon"
+      icon="menu"
+      class="header__hamburger"
+      (btnClick)="toggle()"></app-button>
+    <a href="/" aria-label="Restaurant Management Home">
+      <img
+        [ngSrc]="imageUrl"
+        width="50"
+        height="50"
+        alt="Application Logo"
+        class="header__logo" />
+    </a>
+  </div>
 
   <ng-container *ngIf="currentUser$ | async as user">
     <app-button

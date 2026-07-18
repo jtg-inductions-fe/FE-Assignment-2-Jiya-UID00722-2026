@@ -1,0 +1,14 @@
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tertiary-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 8px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: auto;
+}

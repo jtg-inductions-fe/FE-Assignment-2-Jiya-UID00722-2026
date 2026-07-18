@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,11 +14,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBadgeModule } from '@angular/material/badge';
 import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
 import { HeaderComponent } from '@shared/header/header.component';
 import { AvatarComponent } from '@shared/avatar/avatar.component';
+import { SidebarComponent } from '@shared/sidebar/sidebar.component';
+import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
+import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +34,9 @@ import { AvatarComponent } from '@shared/avatar/avatar.component';
     ErrorPageComponent,
     HeaderComponent,
     AvatarComponent,
+    SidebarComponent,
+    MenuItemComponent,
+    DashboardLayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +51,12 @@ import { AvatarComponent } from '@shared/avatar/avatar.component';
     MatToolbarModule,
     MatMenuModule,
     MatDividerModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    RouterLink,
+    MatBadgeModule,
+    RouterOutlet,
   ],
   exports: [
     ButtonComponent,
@@ -51,6 +68,8 @@ import { AvatarComponent } from '@shared/avatar/avatar.component';
     ErrorPageComponent,
     HeaderComponent,
     AvatarComponent,
+    SidebarComponent,
+    MatBadgeModule,
   ],
   providers: [
     {

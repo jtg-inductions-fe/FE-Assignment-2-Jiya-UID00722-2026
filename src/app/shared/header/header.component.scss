@@ -8,6 +8,19 @@
   background-color: $color-background;
   border-bottom: 1px solid $color-border;
 
+  &__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__hamburger {
+    ::ng-deep .mat-icon {
+      font-size: 40px;
+      line-height: inherit;
+    }
+  }
+
   &__logo {
     width: 3.5rem;
     height: 3.5rem;

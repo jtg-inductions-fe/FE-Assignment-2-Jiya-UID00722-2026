@@ -30,5 +30,14 @@ $my-app-theme: mat.define-light-theme(
 @include mat.snack-bar-theme($my-app-theme);
 @include mat.menu-theme($my-app-theme);
 @include mat.toolbar-theme($my-app-theme);
+@include mat.divider-theme($my-app-theme);
+@include mat.sidenav-theme($my-app-theme);
+@include mat.badge-theme($my-app-theme);
+@include mat.icon-button-theme($my-app-theme);
+@include mat.fab-theme($my-app-theme);
+@include mat.autocomplete-theme($my-app-theme);
+@include mat.select-theme($my-app-theme);
+@include mat.expansion-theme($my-app-theme);
+@include mat.list-theme($my-app-theme);
 
 @include mat.typography-hierarchy(typography.$my-custom-typography-config);

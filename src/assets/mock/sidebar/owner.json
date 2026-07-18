@@ -1,0 +1,90 @@
+{
+  "primary": [
+    {
+      "icon": "pie_chart",
+      "label": "Overview",
+      "url": "/dashboard",
+      "bubble": ""
+    },
+    {
+      "icon": "local_dining",
+      "label": "Menu",
+      "url": "/menu",
+      "bubble": ""
+    },
+    {
+      "icon": "article",
+      "label": "Billing history",
+      "url": "/billing",
+      "bubble": "",
+      "children": [
+        {
+          "icon": "app_badging",
+          "label": "Nested Link",
+          "url": "/nested",
+          "bubble": ""
+        }
+      ]
+    },
+    {
+      "icon": "shopping_bag",
+      "label": "Inventory",
+      "url": "/inventory",
+      "bubble": "",
+      "children": [
+        {
+          "icon": "app_badging",
+          "label": "Nested Link",
+          "url": "/nested",
+          "bubble": ""
+        }
+      ]
+    },
+    {
+      "icon": "message",
+      "label": "Messages",
+      "url": "/messages",
+      "bubble": "1"
+    },
+    {
+      "icon": "lock",
+      "label": "Access",
+      "url": "/access",
+      "bubble": ""
+    }
+  ],
+  "secondary": [
+    {
+      "icon": "list_alt",
+      "label": "My Profile",
+      "url": "/profile",
+      "bubble": ""
+    },
+    {
+      "icon": "add_to_photos",
+      "label": "Gallery",
+      "url": "/gallery",
+      "bubble": ""
+    },
+    {
+      "icon": "help_outline",
+      "label": "Help",
+      "url": "/help",
+      "bubble": ""
+    }
+  ],
+  "tertiary": [
+    {
+      "icon": "tune",
+      "url": ""
+    },
+    {
+      "icon": "language",
+      "url": ""
+    },
+    {
+      "icon": "settings",
+      "url": ""
+    }
+  ]
+}

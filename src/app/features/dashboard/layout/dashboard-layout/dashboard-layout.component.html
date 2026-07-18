@@ -1,0 +1,13 @@
+<mat-sidenav-container class="app-layout">
+  <mat-sidenav
+    [mode]="(isMobile$ | async) ? 'over' : 'side'"
+    [opened]="(currentSidebarState$ | async) ?? false"
+    class="custom-sidenav">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <pre>Sidebar Open: {{ currentSidebarState$ | async }}</pre>
+    <pre>Is Mobile: {{ isMobile$ | async }}</pre>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,69 @@
+{
+  "primary": [
+    {
+      "icon": "pie_chart",
+      "label": "Overview",
+      "url": "/dashboard",
+      "bubble": ""
+    },
+    {
+      "icon": "local_dining",
+      "label": "Restaurants",
+      "url": "/restaurants",
+      "bubble": ""
+    },
+    {
+      "icon": "message",
+      "label": "Messages",
+      "url": "/messages",
+      "bubble": "1"
+    },
+    {
+      "icon": "lock",
+      "label": "Access",
+      "url": "/access",
+      "bubble": "",
+      "children": [
+        {
+          "icon": "pie_chart",
+          "label": "Nested",
+          "url": "/access/nested",
+          "bubble": ""
+        }
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "icon": "list_alt",
+      "label": "My Profile",
+      "url": "/profile",
+      "bubble": ""
+    },
+    {
+      "icon": "add_to_photos",
+      "label": "Gallery",
+      "url": "/gallery",
+      "bubble": ""
+    },
+    {
+      "icon": "help_outline",
+      "label": "Help",
+      "url": "/help"
+    }
+  ],
+  "tertiary": [
+    {
+      "icon": "tune",
+      "url": ""
+    },
+    {
+      "icon": "language",
+      "url": ""
+    },
+    {
+      "icon": "settings",
+      "url": ""
+    }
+  ]
+}
