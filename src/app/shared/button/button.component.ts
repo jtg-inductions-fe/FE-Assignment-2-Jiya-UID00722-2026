@@ -17,6 +17,7 @@ export class ButtonComponent {
   @Input() type = ButtonTypes.ButtonType.button;
   @Input() disabled = false;
   @Input() iconPosition = ButtonTypes.IconPosition.prefix;
+  @Input() iconSize = ButtonTypes.IconSize.md;
   @Input() color?: ButtonTypes.ButtonColor;
   @Input() icon?: string;
   @Input() label?: string;

@@ -1,13 +1,5 @@
-:host {
-  display: block;
-}
-
 .menu-icon {
   margin-right: 32px;
-}
-
-.menu-label {
-  flex-grow: 1;
 }
 
 .nested-list {
@@ -16,21 +8,8 @@
   margin-left: 23px;
 }
 
-mat-expansion-panel {
-  background: transparent;
-}
-
 .mat-expansion-panel-header {
   padding: 0 24px 0 16px;
-}
-
-::ng-deep .mat-expansion-panel-body {
-  padding: 0 !important;
-}
-
-::ng-deep .mat-content {
-  align-items: center;
-  justify-content: space-between;
 }
 
 .active-link .mdc-list-item__content {
@@ -43,7 +22,6 @@ mat-expansion-panel {
 }
 
 .mdc-list-item .badge {
-  color: red;
   background-color: #fde8e8;
   color: #e02424;
   min-width: 24px;

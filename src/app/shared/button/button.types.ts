@@ -22,3 +22,8 @@ export enum IconPosition {
   prefix = 'prefix',
   suffix = 'suffix',
 }
+export enum IconSize {
+  sm = 'sm',
+  md = 'md',
+  lg = 'lg',
+}

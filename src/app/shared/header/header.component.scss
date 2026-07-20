@@ -14,11 +14,8 @@
     align-items: center;
   }
 
-  &__hamburger {
-    ::ng-deep .mat-icon {
-      font-size: 40px;
-      line-height: inherit;
-    }
+  &__hamburger{
+    padding: 0;
   }
 
   &__logo {

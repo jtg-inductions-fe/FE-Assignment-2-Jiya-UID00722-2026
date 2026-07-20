@@ -4,13 +4,13 @@
     "password": "admin123",
     "role": "ADMIN",
     "name": "Admin",
-    "avatar": "assets/avatar_01.png"
+    "avatar": "assets/avatar_01.webp"
   },
   {
     "email": "owner@test.com",
     "password": "owner123",
     "role": "RESTAURANT_OWNER",
     "name": "Restaurant Owner",
-    "avatar": "assets/avatar_02.png"
+    "avatar": "assets/avatar_02.webp"
   }
 ]
