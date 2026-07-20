@@ -1,0 +1,11 @@
+.report {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__actions {
+    display: flex;
+    gap: 1rem;
+  }
+}

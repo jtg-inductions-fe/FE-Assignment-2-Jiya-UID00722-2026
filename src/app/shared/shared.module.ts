@@ -29,6 +29,7 @@ import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
 import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
 import { FooterComponent } from '@shared/footer/footer.component';
 import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.component';
+import { ReportGeneratorComponent } from '@shared/dashboard/report-generator/report-generator.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.compone
     DashboardLayoutComponent,
     FooterComponent,
     StatCardComponent,
+    ReportGeneratorComponent,
   ],
   imports: [
     CommonModule,
@@ -81,6 +83,7 @@ import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.compone
     FooterComponent,
     MatAutocompleteModule,
     StatCardComponent,
+    ReportGeneratorComponent,
   ],
   providers: [
     {
