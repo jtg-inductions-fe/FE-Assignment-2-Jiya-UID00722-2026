@@ -1,3 +1,5 @@
+@use 'abstracts/mixins' as *;
+
 .overview {
   padding: 1.6rem;
 
@@ -7,15 +9,27 @@
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include media-up(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
     .mat-headline-2 {
       margin-bottom: 0;
     }
   }
+
   &__stats {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+
+    @include media-up(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &__stat {
@@ -25,6 +39,11 @@
   &__details {
     display: flex;
     gap: 1.5rem;
+    flex-direction: column;
+
+    @include media-up(md) {
+      flex-direction: row;
+    }
   }
 
   &__details-card {
