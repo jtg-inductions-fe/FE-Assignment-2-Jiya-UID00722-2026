@@ -26,6 +26,7 @@ import { AvatarComponent } from '@shared/avatar/avatar.component';
 import { SidebarComponent } from '@shared/sidebar/sidebar.component';
 import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
 import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
+import { FooterComponent } from '@shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-l
     SidebarComponent,
     MenuItemComponent,
     DashboardLayoutComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +60,7 @@ import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-l
     RouterLinkActive,
     MatBadgeModule,
     RouterOutlet,
+    MatCardModule,
   ],
   exports: [
     ButtonComponent,
@@ -71,6 +74,7 @@ import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-l
     AvatarComponent,
     SidebarComponent,
     MatBadgeModule,
+    FooterComponent,
   ],
   providers: [
     {
