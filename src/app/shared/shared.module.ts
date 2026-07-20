@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,6 +55,7 @@ import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-l
     MatListModule,
     MatExpansionModule,
     RouterLink,
+    RouterLinkActive,
     MatBadgeModule,
     RouterOutlet,
   ],

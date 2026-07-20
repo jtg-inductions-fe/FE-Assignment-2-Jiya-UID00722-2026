@@ -1,3 +1,4 @@
+@use 'abstracts/variables' as *;
 .menu-icon {
   margin-right: 32px;
 }
@@ -12,9 +13,9 @@
   padding: 0 24px 0 16px;
 }
 
-.active-link .mdc-list-item__content {
-  color: red;
-  background-color: pink;
+.nav-link.active-link .mat-mdc-list-item-title,
+.nav-link.active-link .mat-icon {
+  color: $color-primary;
 }
 
 .mdc-list-item__start {

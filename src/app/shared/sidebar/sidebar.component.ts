@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
     const role = this.authService.getUserRole();
     const targetUrl = role === 'ADMIN' ? this.adminUrl : this.ownerUrl;
 
-    // Assigning the HTTP request observable directly
     this.menuItems$ = this.http.get<MenuConfig>(targetUrl);
   }
 }

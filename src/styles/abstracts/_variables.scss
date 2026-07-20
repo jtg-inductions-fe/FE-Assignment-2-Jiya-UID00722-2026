@@ -1,8 +1,9 @@
 @use '@angular/material' as mat;
+@use 'themes/palette' as palette;
 
-$color-primary: mat.get-color-from-palette(mat.$green-palette, 600);
+$color-primary: mat.get-color-from-palette(palette.$green-palette, 600);
 $color-primary-contrast: mat.get-contrast-color-from-palette(
-  mat.$green-palette,
+  palette.$green-palette,
   600
 );
 
