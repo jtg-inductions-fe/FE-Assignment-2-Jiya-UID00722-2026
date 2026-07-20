@@ -1,5 +1,4 @@
 import { Input, Component } from '@angular/core';
-import { DashboardStats } from '@core/models/dashboard.model';
 
 @Component({
   selector: 'app-stat-card',
@@ -7,7 +6,6 @@ import { DashboardStats } from '@core/models/dashboard.model';
   styleUrls: ['./stat-card.component.scss'],
 })
 export class StatCardComponent {
-  @Input({ required: true }) card!: DashboardStats;
   @Input() title = '';
   @Input() value = '';
   @Input() icon = '';

@@ -30,7 +30,6 @@
   <div class="overview__stats">
     <app-stat-card
       *ngFor="let item of statsCards"
-      [card]="stats"
       [title]="item.title"
       [value]="stats[item.key].toString()"
       [icon]="item.icon"
@@ -41,6 +40,18 @@
   </div>
 
   <app-report-generator></app-report-generator>
+
+  <div class="overview__details">
+    <app-details-card
+      [details]="topCustomerItems"
+      label="Top Customers"
+      class="overview__details-card"></app-details-card>
+
+    <app-details-card
+      [details]="topSellingDishItems"
+      label="Top Selling Dishes"
+      class="overview__details-card"></app-details-card>
+  </div>
 
   <app-footer></app-footer>
 </div>

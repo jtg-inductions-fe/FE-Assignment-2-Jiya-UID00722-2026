@@ -1,6 +1,6 @@
 {
   "stats": {
-    "revenue": 118.0,
+    "revenue": "$118.0",
     "totalOrders": 5,
     "completedOrders": 3,
     "activeRestaurants": 2
@@ -9,27 +9,32 @@
     {
       "name": "Albert Wright",
       "email": "albertwright@demo.com",
-      "orderAmount": 60
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_05.png"
     },
     {
       "name": "Karen Nelson",
       "email": "karennelson@demo.com",
-      "orderAmount": 58
+      "orderAmount": "$58",
+      "avatar": "assets/avatar_01.png"
     },
     {
       "name": "Dave Miller",
       "email": "davemiller@demo.com",
-      "orderAmount": 48
+      "orderAmount": "$48",
+      "avatar": "assets/avatar_02.png"
     },
     {
       "name": "Lana Byrd",
       "email": "lanabyrd@demo.com",
-      "orderAmount": 42
+      "orderAmount": "$42",
+      "avatar": "assets/avatar_03.png"
     },
     {
       "name": "Neil Sims",
       "email": "neilsims@demo.com",
-      "orderAmount": 60
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_04.png"
     }
   ],
   "topSellingDishes": [

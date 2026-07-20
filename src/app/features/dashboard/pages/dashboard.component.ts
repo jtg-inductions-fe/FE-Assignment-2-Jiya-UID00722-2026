@@ -7,6 +7,7 @@ import {
   RestaurantDashboard,
   TopCustomer,
   TopSellingDish,
+  DetailsCardItem,
 } from '@core/models/dashboard.model';
 import { DashboardService } from '@core/services/dashboard.service';
 import { map, Observable, startWith } from 'rxjs';
@@ -28,7 +29,7 @@ export class DashboardComponent implements OnInit {
   dashboardData!: RestaurantDashboard;
 
   stats: DashboardStats = {
-    revenue: 0,
+    revenue: '',
     totalOrders: 0,
     completedOrders: 0,
     activeRestaurants: 0,
@@ -74,6 +75,9 @@ export class DashboardComponent implements OnInit {
   topCustomers: TopCustomer[] = [];
   topSellingDishes: TopSellingDish[] = [];
   orders: Order[] = [];
+
+  topCustomerItems: DetailsCardItem[] = [];
+  topSellingDishItems: DetailsCardItem[] = [];
 
   constructor(private dashboardService: DashboardService) {}
 
@@ -125,6 +129,19 @@ export class DashboardComponent implements OnInit {
         this.topCustomers = res.topCustomers;
         this.topSellingDishes = res.topSellingDishes;
         this.orders = res.orders ?? [];
+
+        this.topCustomerItems = this.topCustomers.map(customer => ({
+          title: customer.name,
+          subtitle: customer.email,
+          value: customer.orderAmount,
+          image: customer.avatar,
+        }));
+
+        this.topSellingDishItems = this.topSellingDishes.map(dish => ({
+          title: dish.dishName,
+          subtitle: dish.restaurantName,
+          value: `${dish.numberOfOrders} orders`,
+        }));
       });
   }
 }
