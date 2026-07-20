@@ -1,22 +1,10 @@
 {
-  "stats": [
-    {
-      "title": "Total Revenue",
-      "value": 200.5
-    },
-    {
-      "title": "Total Orders",
-      "value": 10
-    },
-    {
-      "title": "Completed Orders",
-      "value": 5
-    },
-    {
-      "title": "Active Orders",
-      "value": 3
-    }
-  ],
+  "stats": {
+    "revenue": 200.5,
+    "totalOrders": 10,
+    "completedOrders": 5,
+    "activeRestaurants": 3
+  },
   "topCustomers": [
     {
       "name": "Albert Wright",

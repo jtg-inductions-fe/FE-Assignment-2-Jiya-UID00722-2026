@@ -1,3 +1,44 @@
 <div class="overview">
+  <div class="overview__header">
+    <div class="overview__title">
+      <h1 class="mat-headline-2">Overview Dashboard</h1>
+      <p class="body-2">
+        System administrator overview panel. Impersonate owners or view
+        aggregate metrics.
+      </p>
+    </div>
+    <form>
+      <app-input
+        [control]="restaurantControl"
+        label="View Dashboard As"
+        [autocomplete]="auto">
+      </app-input>
+
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        [displayWith]="displayFn"
+        (optionSelected)="onRestaurantSelected($event.option.value)">
+        <mat-option
+          *ngFor="let restaurant of filteredRestaurants | async"
+          [value]="restaurant">
+          {{ restaurant.restaurantName }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+
+  <div class="overview__stats">
+    <app-stat-card
+      *ngFor="let item of statsCards"
+      [card]="stats"
+      [title]="item.title"
+      [value]="stats[item.key].toString()"
+      [icon]="item.icon"
+      [color]="item.color"
+      [iconBg]="item.iconBg"
+      class="overview__stat">
+    </app-stat-card>
+  </div>
+
   <app-footer></app-footer>
 </div>

@@ -1,6 +1,8 @@
 export interface DashboardStats {
-  title: string;
-  value: number;
+  revenue: number;
+  totalOrders: number;
+  completedOrders: number;
+  activeRestaurants: number;
 }
 
 export interface TopCustomer {
@@ -24,8 +26,13 @@ export interface Order {
 }
 
 export interface RestaurantDashboard {
-  stats: DashboardStats[];
+  stats: DashboardStats;
   topCustomers: TopCustomer[];
   topSellingDishes: TopSellingDish[];
   orders?: Order[];
+}
+
+export interface Restaurant {
+  restaurantId: string;
+  restaurantName: string;
 }

@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
@@ -27,6 +28,7 @@ import { SidebarComponent } from '@shared/sidebar/sidebar.component';
 import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
 import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
 import { FooterComponent } from '@shared/footer/footer.component';
+import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { FooterComponent } from '@shared/footer/footer.component';
     MenuItemComponent,
     DashboardLayoutComponent,
     FooterComponent,
+    StatCardComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +64,7 @@ import { FooterComponent } from '@shared/footer/footer.component';
     MatBadgeModule,
     RouterOutlet,
     MatCardModule,
+    MatAutocompleteModule,
   ],
   exports: [
     ButtonComponent,
@@ -75,6 +79,8 @@ import { FooterComponent } from '@shared/footer/footer.component';
     SidebarComponent,
     MatBadgeModule,
     FooterComponent,
+    MatAutocompleteModule,
+    StatCardComponent,
   ],
   providers: [
     {

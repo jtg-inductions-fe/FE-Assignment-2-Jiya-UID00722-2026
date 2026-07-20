@@ -1,6 +1,10 @@
 {
   "restaurants": [
     {
+      "restaurantId": "all",
+      "restaurantName": "All Restaurants"
+    },
+    {
       "restaurantId": "pizza_palace",
       "restaurantName": "Pizza Palace"
     },
