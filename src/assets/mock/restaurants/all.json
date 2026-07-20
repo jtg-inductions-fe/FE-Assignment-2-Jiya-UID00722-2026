@@ -1,0 +1,74 @@
+{
+  "stats": [
+    {
+      "title": "Total Revenue",
+      "value": 200.5
+    },
+    {
+      "title": "Total Orders",
+      "value": 10
+    },
+    {
+      "title": "Completed Orders",
+      "value": 5
+    },
+    {
+      "title": "Active Orders",
+      "value": 3
+    }
+  ],
+  "topCustomers": [
+    {
+      "name": "Albert Wright",
+      "email": "albertwright@demo.com",
+      "orderAmount": 60
+    },
+    {
+      "name": "Karen Nelson",
+      "email": "karennelson@demo.com",
+      "orderAmount": 58
+    },
+    {
+      "name": "Dave Miller",
+      "email": "davemiller@demo.com",
+      "orderAmount": 48
+    },
+    {
+      "name": "Lana Byrd",
+      "email": "lanabyrd@demo.com",
+      "orderAmount": 42
+    },
+    {
+      "name": "Neil Sims",
+      "email": "neilsims@demo.com",
+      "orderAmount": 60
+    }
+  ],
+  "topSellingDishes": [
+    {
+      "dishName": "Soda",
+      "restaurantName": "Pizza Palace",
+      "numberOfOrders": 4
+    },
+    {
+      "dishName": "Margherita Pizza",
+      "restaurantName": "Pizza Palace",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Truffle Pasta",
+      "restaurantName": "Pizza Palace",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Garlic Bread",
+      "restaurantName": "Pizza Palace",
+      "numberOfOrders": 2
+    },
+    {
+      "dishName": "Cheeseburger",
+      "restaurantName": "Burger Bistro",
+      "numberOfOrders": 2
+    }
+  ]
+}

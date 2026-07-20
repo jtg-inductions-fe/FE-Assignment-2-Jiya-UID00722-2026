@@ -1,0 +1,12 @@
+{
+  "restaurants": [
+    {
+      "restaurantId": "pizza_palace",
+      "restaurantName": "Pizza Palace"
+    },
+    {
+      "restaurantId": "burger_bistro",
+      "restaurantName": "Burger Bistro"
+    }
+  ]
+}
