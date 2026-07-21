@@ -65,7 +65,7 @@
       "restaurantName": "Pizza Palace",
       "customerName": "Bonnie Green",
       "items": "Truffle Pasta, Soda",
-      "amount": 28.0,
+      "amount": "$28.0",
       "status": "Pending"
     },
     {
@@ -73,7 +73,7 @@
       "restaurantName": "Pizza Palace",
       "customerName": "Dave Miller",
       "items": "Margherita Pizza, Pepperoni Pizza",
-      "amount": 48.0,
+      "amount": "$48.0",
       "status": "Pending"
     }
   ]

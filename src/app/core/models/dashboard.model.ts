@@ -23,7 +23,7 @@ export interface Order {
   restaurantName: string;
   customerName: string;
   items: string;
-  amount: number;
+  amount: string;
   status: string;
 }
 

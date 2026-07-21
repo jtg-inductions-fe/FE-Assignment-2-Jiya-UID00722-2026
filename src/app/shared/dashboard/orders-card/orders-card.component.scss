@@ -1,0 +1,26 @@
+.orders-card {
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    margin-bottom: 0;
+  }
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+  &__actions-cell {
+    height: inherit;
+  }
+  &__table {
+    overflow-x: auto;
+  }
+}
+
+.mat-body-2 {
+  font-weight: 700;
+}

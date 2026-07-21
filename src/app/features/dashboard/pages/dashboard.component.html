@@ -53,5 +53,11 @@
       class="overview__details-card"></app-details-card>
   </div>
 
+  <app-orders-card
+    *ngIf="orders.length"
+    [orders]="orders"
+    title="Active Orders"
+    subtitle="Manage pending and accepted orders directly from your dashboard."></app-orders-card>
+
   <app-footer></app-footer>
 </div>

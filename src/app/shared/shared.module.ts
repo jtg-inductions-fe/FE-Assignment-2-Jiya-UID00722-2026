@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
@@ -31,6 +32,7 @@ import { FooterComponent } from '@shared/footer/footer.component';
 import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.component';
 import { ReportGeneratorComponent } from '@shared/dashboard/report-generator/report-generator.component';
 import { DetailsCardComponent } from '@shared/dashboard/details-card/details-card.component';
+import { OrdersCardComponent } from '@shared/dashboard/orders-card/orders-card.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { DetailsCardComponent } from '@shared/dashboard/details-card/details-car
     StatCardComponent,
     ReportGeneratorComponent,
     DetailsCardComponent,
+    OrdersCardComponent,
   ],
   imports: [
     CommonModule,
@@ -69,6 +72,7 @@ import { DetailsCardComponent } from '@shared/dashboard/details-card/details-car
     RouterOutlet,
     MatCardModule,
     MatAutocompleteModule,
+    MatTableModule,
   ],
   exports: [
     ButtonComponent,
@@ -87,6 +91,7 @@ import { DetailsCardComponent } from '@shared/dashboard/details-card/details-car
     StatCardComponent,
     ReportGeneratorComponent,
     DetailsCardComponent,
+    OrdersCardComponent,
   ],
   providers: [
     {
