@@ -9,7 +9,7 @@ import {
   TopSellingDish,
   DetailsCardItem,
 } from '@core/models/dashboard.model';
-import { User } from '@core/models/user.model';
+import { User, UserRole } from '@core/models/user.model';
 import { AuthService } from '@core/services/auth.service';
 import { DashboardService } from '@core/services/dashboard.service';
 import { map, Observable, startWith } from 'rxjs';
@@ -91,7 +91,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
-    this.isRestaurantOwner = this.currentUser?.role === 'RESTAURANT_OWNER';
+    this.isRestaurantOwner =
+      this.currentUser?.role === UserRole.RESTAURANT_OWNER;
 
     if (this.isRestaurantOwner) {
       this.loadDashboardForOwner();
