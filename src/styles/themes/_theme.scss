@@ -39,5 +39,6 @@ $my-app-theme: mat.define-light-theme(
 @include mat.select-theme($my-app-theme);
 @include mat.expansion-theme($my-app-theme);
 @include mat.list-theme($my-app-theme);
+@include mat.chips-theme($my-app-theme);
 
 @include mat.typography-hierarchy(typography.$my-custom-typography-config);

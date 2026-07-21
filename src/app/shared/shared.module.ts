@@ -33,6 +33,7 @@ import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.compone
 import { ReportGeneratorComponent } from '@shared/dashboard/report-generator/report-generator.component';
 import { DetailsCardComponent } from '@shared/dashboard/details-card/details-card.component';
 import { OrdersCardComponent } from '@shared/dashboard/orders-card/orders-card.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { OrdersCardComponent } from '@shared/dashboard/orders-card/orders-card.c
     MatCardModule,
     MatAutocompleteModule,
     MatTableModule,
+    MatChipsModule,
   ],
   exports: [
     ButtonComponent,
