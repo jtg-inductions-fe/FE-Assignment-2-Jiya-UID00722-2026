@@ -69,20 +69,45 @@
             ACTIONS
           </th>
           <td mat-cell *matCellDef="let order" class="orders-card__actions">
-            <app-button
-              icon="close"
-              [variant]="Button.ButtonVariant.stroked"
-              [color]="Button.ButtonColor.primary"
-              (click)="reject(order)">
-              Reject
-            </app-button>
-            <app-button
-              icon="check"
-              [variant]="Button.ButtonVariant.raised"
-              [color]="Button.ButtonColor.primary"
-              (click)="accept(order)">
-              Accept
-            </app-button>
+            <ng-container
+              *ngIf="
+                order.status?.toLowerCase() === Status.Pending.toLowerCase();
+                else acceptedActions
+              ">
+              <app-button
+                icon="close"
+                [variant]="Button.ButtonVariant.stroked"
+                [color]="Button.ButtonColor.primary"
+                (click)="reject(order)">
+                Reject
+              </app-button>
+
+              <app-button
+                icon="check"
+                [variant]="Button.ButtonVariant.raised"
+                [color]="Button.ButtonColor.primary"
+                (click)="accept(order)">
+                Accept
+              </app-button>
+            </ng-container>
+
+            <ng-template #acceptedActions>
+              <app-button
+                icon="close"
+                [variant]="Button.ButtonVariant.stroked"
+                [color]="Button.ButtonColor.primary"
+                (click)="reject(order)">
+                Reject
+              </app-button>
+
+              <app-button
+                icon="check"
+                [variant]="Button.ButtonVariant.raised"
+                [color]="Button.ButtonColor.primary"
+                (click)="complete(order)">
+                Complete
+              </app-button>
+            </ng-template>
           </td>
         </ng-container>
 

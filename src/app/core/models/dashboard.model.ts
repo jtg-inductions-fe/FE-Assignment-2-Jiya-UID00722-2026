@@ -18,13 +18,20 @@ export interface TopSellingDish {
   numberOfOrders: number;
 }
 
+export enum Status {
+  Pending = 'Pending',
+  Accepted = 'Accepted',
+  Completed = 'Completed',
+  Rejected = 'Rejected',
+}
+
 export interface Order {
   orderId: string;
   restaurantName: string;
   customerName: string;
   items: string;
   amount: string;
-  status: string;
+  status: Status;
 }
 
 export interface RestaurantDashboard {
