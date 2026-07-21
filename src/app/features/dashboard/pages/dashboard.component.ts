@@ -9,6 +9,8 @@ import {
   TopSellingDish,
   DetailsCardItem,
 } from '@core/models/dashboard.model';
+import { User } from '@core/models/user.model';
+import { AuthService } from '@core/services/auth.service';
 import { DashboardService } from '@core/services/dashboard.service';
 import { map, Observable, startWith } from 'rxjs';
 
@@ -79,9 +81,26 @@ export class DashboardComponent implements OnInit {
   topCustomerItems: DetailsCardItem[] = [];
   topSellingDishItems: DetailsCardItem[] = [];
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private authService: AuthService,
+  ) {}
+
+  currentUser!: User | null;
+  isRestaurantOwner = false;
 
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
+    this.isRestaurantOwner = this.currentUser?.role === 'RESTAURANT_OWNER';
+
+    if (this.isRestaurantOwner) {
+      this.loadDashboardForOwner();
+    } else {
+      this.loadRestaurants();
+    }
+  }
+
+  private loadRestaurants(): void {
     this.dashboardService.getRestaurants().subscribe((res: any) => {
       this.restaurants = res.restaurants;
 
@@ -95,12 +114,23 @@ export class DashboardComponent implements OnInit {
         }),
       );
 
-      // selecting the first restaurant by default
       if (this.restaurants.length) {
         this.restaurantControl.setValue(this.restaurants[0]);
         this.loadDashboard(this.restaurants[0]);
       }
     });
+  }
+
+  private loadDashboardForOwner(): void {
+    if (!this.currentUser?.restaurantId) {
+      return;
+    }
+
+    this.dashboardService
+      .getDashboardData(this.currentUser.restaurantId)
+      .subscribe(res => {
+        this.setDashboardData(res);
+      });
   }
 
   private filter(value: string): Restaurant[] {
@@ -122,26 +152,28 @@ export class DashboardComponent implements OnInit {
   private loadDashboard(restaurant: Restaurant): void {
     this.dashboardService
       .getDashboardData(restaurant.restaurantId)
-      .subscribe((res: RestaurantDashboard) => {
-        this.dashboardData = res;
+      .subscribe(res => this.setDashboardData(res));
+  }
 
-        this.stats = res.stats;
-        this.topCustomers = res.topCustomers;
-        this.topSellingDishes = res.topSellingDishes;
-        this.orders = res.orders ?? [];
+  private setDashboardData(res: RestaurantDashboard): void {
+    this.dashboardData = res;
 
-        this.topCustomerItems = this.topCustomers.map(customer => ({
-          title: customer.name,
-          subtitle: customer.email,
-          value: customer.orderAmount,
-          image: customer.avatar,
-        }));
+    this.stats = res.stats;
+    this.topCustomers = res.topCustomers;
+    this.topSellingDishes = res.topSellingDishes;
+    this.orders = res.orders ?? [];
 
-        this.topSellingDishItems = this.topSellingDishes.map(dish => ({
-          title: dish.dishName,
-          subtitle: dish.restaurantName,
-          value: `${dish.numberOfOrders} orders`,
-        }));
-      });
+    this.topCustomerItems = this.topCustomers.map(customer => ({
+      title: customer.name,
+      subtitle: customer.email,
+      value: customer.orderAmount,
+      image: customer.avatar,
+    }));
+
+    this.topSellingDishItems = this.topSellingDishes.map(dish => ({
+      title: dish.dishName,
+      subtitle: dish.restaurantName,
+      value: `${dish.numberOfOrders} orders`,
+    }));
   }
 }

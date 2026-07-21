@@ -2,12 +2,18 @@
   <div class="overview__header">
     <div class="overview__title">
       <h1 class="mat-headline-2">Overview Dashboard</h1>
-      <p class="body-2">
-        System administrator overview panel. Impersonate owners or view
-        aggregate metrics.
+      <p class="body-2" *ngIf="isRestaurantOwner; else isAdmin">
+        Welcome back, restaurant partner! Track your orders and performance
+        details.
       </p>
+      <ng-template #isAdmin>
+        <p class="body-2">
+          System administrator overview panel. Impersonate owners or view
+          aggregate metrics.
+        </p>
+      </ng-template>
     </div>
-    <form>
+    <form [hidden]="isRestaurantOwner">
       <app-input
         [control]="restaurantControl"
         label="View Dashboard As"
