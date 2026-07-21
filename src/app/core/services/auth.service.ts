@@ -34,7 +34,7 @@ export class AuthService {
 
         localStorage.setItem('currentUser', JSON.stringify(sessionUser));
 
-        this.currentUserSubject.next(user);
+        this.currentUserSubject.next(sessionUser);
         return true;
       }),
     );
@@ -66,5 +66,9 @@ export class AuthService {
 
   getUserRole(): UserRole | undefined {
     return this.currentUserSubject.value?.role;
+  }
+
+  get currentUser(): User | null {
+    return this.currentUserSubject.value;
   }
 }
