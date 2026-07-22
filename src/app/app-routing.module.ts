@@ -11,13 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [loggedInGuard],
+    canMatch: [loggedInGuard],
     loadChildren: () =>
       import('./features/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'dashboard',
-    canActivate: [authGuard],
+    canMatch: [authGuard],
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then(
         m => m.DashboardModule,
