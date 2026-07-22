@@ -1,5 +1,5 @@
 export const AssetPaths = {
   data: {
-    users: 'assets/mock/users.json',
+    USERS: 'assets/mock/users.json',
   },
 };

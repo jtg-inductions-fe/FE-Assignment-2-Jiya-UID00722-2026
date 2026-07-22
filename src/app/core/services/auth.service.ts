@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(AssetPaths.data.users).pipe(
+    return this.http.get<User[]>(AssetPaths.data.USERS).pipe(
       map(users => {
         const user = users.find(
           ({ email: userEmail, password: userPassword }) =>

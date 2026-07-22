@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [ButtonComponent, InputComponent],
@@ -19,7 +20,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatCardModule,
   ],
-  exports: [ButtonComponent, InputComponent, MatSnackBarModule],
+  exports: [
+    ButtonComponent,
+    InputComponent,
+    MatSnackBarModule,
+    MatCardModule,
+    ReactiveFormsModule,
+  ],
 })
 export class SharedModule {}
