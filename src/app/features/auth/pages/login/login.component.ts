@@ -1,33 +1,38 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+import * as Input from '@shared/input/input.types';
+import * as Button from '@shared/button/button.types';
+import { SnackbarService } from '@core/services/snackBar.service';
+import { SnackbarType } from '@core/models/snackbar.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  private snackBar = inject(MatSnackBar);
-  authService = inject(AuthService);
+export class LoginComponent {
+  readonly Input = Input;
+  readonly Button = Button;
+
+  private returnUrl = '/';
+
+  private snackBar = inject(SnackbarService);
+  private authService = inject(AuthService);
   private router = inject(Router);
   private fb = inject(FormBuilder);
+
+  constructor(private route: ActivatedRoute) {
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') ?? '/';
+  }
 
   loading = false;
   hidePassword = true;
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
-
-  ngOnInit(): void {
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/dashboard']);
-    }
-  }
 
   login(): void {
     if (this.loginForm.invalid) {
@@ -45,31 +50,22 @@ export class LoginComponent implements OnInit {
         this.loading = false;
 
         if (!isLoggedIn) {
-          this.showNotification(
+          this.snackBar.showNotification(
             'Invalid username or password',
-            'Retry',
-            'error-snackbar',
+            SnackbarType.Error,
           );
           this.loginForm.reset();
           return;
         }
 
-        this.router.navigate(['/dashboard']);
+        this.router.navigateByUrl(this.returnUrl);
       },
 
       error: () => {
         this.loading = false;
 
-        this.showNotification('Please try again', 'Retry', 'error-snackbar');
+        this.snackBar.showNotification('Please try again', SnackbarType.Error);
       },
-    });
-  }
-  showNotification(message: string, action: string, panelClass: string) {
-    this.snackBar.open(message, action, {
-      duration: 4000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-      panelClass: [panelClass],
     });
   }
 }

@@ -1,19 +1,19 @@
-@use '@angular/material' as mat;
+@use 'abstracts/variables' as *;
 
-$success-bg: mat.get-color-from-palette(mat.$green-palette, 600);
-$success-text: mat.get-contrast-color-from-palette(mat.$green-palette, 600);
+$success-bg: $color-primary;
+$success-text: $color-primary-contrast;
 
-$error-bg: mat.get-color-from-palette(mat.$red-palette, 600);
-$error-text: mat.get-contrast-color-from-palette(mat.$red-palette, 600);
+$error-bg: $color-error;
+$error-text: $color-error-contrast;
 
-.success-snackbar {
+.success {
   --mdc-snackbar-container-color: #{$success-bg};
   --mat-snack-bar-button-color: #{$success-text};
   --mdc-snackbar-supporting-text-color: #{$success-text};
   color: #{$success-text};
 }
 
-.error-snackbar {
+.error {
   --mdc-snackbar-container-color: #{$error-bg};
   --mat-snack-bar-button-color: #{$error-text};
   --mdc-snackbar-supporting-text-color: #{$error-text};

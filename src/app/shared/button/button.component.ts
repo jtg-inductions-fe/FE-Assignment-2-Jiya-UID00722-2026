@@ -5,9 +5,12 @@ import {
   EventEmitter,
   ElementRef,
 } from '@angular/core';
-
-export type ButtonVariant =
-  'basic' | 'raised' | 'flat' | 'stroked' | 'icon' | 'fab' | 'mini-fab';
+import {
+  ButtonColor,
+  ButtonType,
+  ButtonVariant,
+  IconPosition,
+} from './button.types';
 
 @Component({
   selector: 'app-button',
@@ -15,13 +18,13 @@ export type ButtonVariant =
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() variant: ButtonVariant = 'basic';
-  @Input() color: 'primary' | 'accent' | 'warn' | null = null;
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
+  @Input() variant: ButtonVariant = ButtonVariant.basic;
+  @Input() color?: ButtonColor;
+  @Input() type: ButtonType = ButtonType.button;
   @Input() disabled = false;
-  @Input() icon: string | null = null;
-  @Input() iconPosition: 'prefix' | 'suffix' = 'prefix';
-  @Input() label: string | null = null;
+  @Input() icon?: string;
+  @Input() iconPosition: IconPosition = IconPosition.prefix;
+  @Input() label?: string;
 
   @Output() btnClick = new EventEmitter<MouseEvent>();
 
@@ -29,13 +32,6 @@ export class ButtonComponent {
 
   get buttonClasses(): { [key: string]: boolean } {
     return {
-      'mat-mdc-button': this.variant === 'basic',
-      'mat-mdc-raised-button': this.variant === 'raised',
-      'mat-mdc-unelevated-button': this.variant === 'flat',
-      'mat-mdc-outlined-button': this.variant === 'stroked',
-      'mat-mdc-icon-button': this.variant === 'icon',
-      'mat-mdc-fab': this.variant === 'fab',
-      'mat-mdc-mini-fab': this.variant === 'mini-fab',
       [this.el.nativeElement.className]: true,
     };
   }

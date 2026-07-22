@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { User } from '@core/models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map } from 'rxjs';
+import { User } from '@core/models/user.model';
+import { AssetPaths } from '@core/constants/assets';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private usersUrl = 'assets/mock/users.json';
-
   private currentUserSubject = new BehaviorSubject<User | null>(
     this.getCurrentUser(),
   );
@@ -18,17 +17,17 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(this.usersUrl).pipe(
+    return this.http.get<User[]>(AssetPaths.data.users).pipe(
       map(users => {
         const user = users.find(
-          x => x.email === email && x.password === password,
+          ({ email: userEmail, password: userPassword }) =>
+            userEmail === email && userPassword === password,
         );
         if (!user) {
           return false;
         }
 
-        const sessionUser = { ...user };
-        delete (sessionUser as User).password;
+        const sessionUser = { ...user, password: undefined };
 
         localStorage.setItem('currentUser', JSON.stringify(sessionUser));
 
@@ -44,12 +43,21 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.currentUserSubject.value !== null;
+    return !!this.currentUserSubject.value;
   }
 
   getCurrentUser(): User | null {
     const user = localStorage.getItem('currentUser');
-    return user ? JSON.parse(user) : null;
+
+    if (!user) {
+      return null;
+    }
+    try {
+      return JSON.parse(user) as User;
+    } catch {
+      localStorage.removeItem('currentUser');
+      return null;
+    }
   }
 
   getUserRole(): string {

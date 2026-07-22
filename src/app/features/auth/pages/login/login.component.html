@@ -13,21 +13,21 @@
         <app-input
           [control]="loginForm.controls.email"
           label="Email Address"
-          type="email">
+          [type]="Input.InputType.email">
         </app-input>
 
         <app-input
           [control]="loginForm.controls.password"
           label="Password"
-          type="password">
+          [type]="Input.InputType.password">
         </app-input>
 
         <app-button
-          variant="raised"
-          color="primary"
-          type="submit"
-          class="w-100"
+          [variant]="Button.ButtonVariant.raised"
+          [type]="Button.ButtonType.submit"
           [disabled]="loading"
+          [color]="Button.ButtonColor.primary"
+          class="w-100"
           >{{ loading ? 'LOGGING IN...' : 'LOGIN' }}</app-button
         >
       </form>

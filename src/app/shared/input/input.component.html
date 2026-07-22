@@ -10,17 +10,17 @@
     [placeholder]="placeholder"
     [readonly]="readonly" />
 
-  <button
+  <app-button
     *ngIf="type === 'password'"
     mat-icon-button
     matSuffix
-    type="button"
-    (click)="togglePasswordVisibility($event)"
-    [disabled]="control.disabled">
+    [type]="Button.ButtonType.button"
+    [disabled]="control.disabled"
+    (click)="togglePasswordVisibility($event)">
     <mat-icon>
       {{ hidePassword ? 'visibility' : 'visibility_off' }}
     </mat-icon>
-  </button>
+  </app-button>
 
   <mat-icon *ngIf="suffixIcon && type !== 'password'" matSuffix>
     {{ suffixIcon }}

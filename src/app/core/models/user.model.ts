@@ -1,7 +1,12 @@
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  RESTAURANT_OWNER = 'RESTAURANT_OWNER',
+}
 export interface User {
   email: string;
-  password?: string;
-  role: 'ADMIN' | 'RESTAURANT_OWNER';
+  role: UserRole;
   name: string;
   avatar: string;
+  password?: string;
+  restaurantId?: string;
 }

@@ -5,8 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 
 export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
@@ -19,5 +18,9 @@ export const authGuard: CanActivateFn = (
     return true;
   }
 
-  return router.createUrlTree(['/login']);
+  return router.createUrlTree(['/login'], {
+    queryParams: {
+      returnUrl: state.url,
+    },
+  });
 };

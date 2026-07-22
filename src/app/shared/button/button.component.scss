@@ -2,19 +2,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.8rem;
   vertical-align: middle;
 }
 
 .mat-mdc-outlined-button {
-  border: 1px solid currentColor;
+  --mdc-outlined-button-outline-color: 1px solid currentColor;
 }
 
 .mat-mdc-raised-button {
   --mdc-protected-button-container-elevation:
     0px 1px 5px 0px #0000001f, 0px 2px 2px 0px #00000024,
     0px 3px 1px -2px #00000033;
-}
-.w-100 {
-  width: 100%;
 }
