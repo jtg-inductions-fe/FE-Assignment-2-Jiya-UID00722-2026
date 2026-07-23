@@ -28,9 +28,7 @@ const routes: Routes = [
     path: '**',
     component: ErrorPageComponent,
     data: {
-      title: 'Page not found',
-      subtitle:
-        'Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.',
+      error: 404,
     },
   },
 ];

@@ -1,16 +1,16 @@
 <section class="error-page">
   <img
-    *ngIf="imgUrl"
-    [ngSrc]="imgUrl"
+    *ngIf="errorContent.imgUrl"
+    [ngSrc]="errorContent.imgUrl"
     width="400"
     height="200"
     alt="Page Not Found"
     class="error-page__image" />
 
-  <h2 class="mat-headline-2 error-page__title">{{ title }}</h2>
+  <h2 class="mat-headline-2 error-page__title">{{ errorContent.title }}</h2>
 
   <p class="mat-body-2 error-page__description">
-    {{ subtitle }}
+    {{ errorContent.subtitle }}
   </p>
   <app-button
     [type]="Button.ButtonType.button"
