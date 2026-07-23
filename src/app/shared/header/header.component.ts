@@ -1,7 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@core/services/auth.service';
-import { Observable } from 'rxjs';
-import { User } from '@core/models/user.model';
 import { ASSETS } from '@core/constants/assets';
 import * as Button from '@shared/button/button.types';
 
@@ -12,7 +10,7 @@ import * as Button from '@shared/button/button.types';
 })
 export class HeaderComponent {
   private authService = inject(AuthService);
-  currentUser$: Observable<User | null> = this.authService.currentUser$;
+  currentUser$ = this.authService.currentUser$;
   readonly Button = Button;
   imageUrl = ASSETS.IMAGES.LOGO;
 
