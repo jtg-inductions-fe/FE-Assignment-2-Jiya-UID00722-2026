@@ -9,9 +9,10 @@ import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent],
+  declarations: [ButtonComponent, InputComponent, ErrorPageComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -30,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     ReactiveFormsModule,
     NgOptimizedImage,
+    ErrorPageComponent,
   ],
 })
 export class SharedModule {}
