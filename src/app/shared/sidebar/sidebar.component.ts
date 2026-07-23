@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MenuConfig } from '@core/models/menu.model';
 import { AuthService } from '@core/services/auth.service';
+import { ASSETS } from '@core/constants/assets';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,8 +14,8 @@ export class SidebarComponent implements OnInit {
   private http = inject(HttpClient);
   private authService = inject(AuthService);
 
-  private adminUrl = 'assets/mock/sidebar/admin.json';
-  private ownerUrl = 'assets/mock/sidebar/owner.json';
+  private adminUrl = ASSETS.DATA.SIDEBAR.ADMIN;
+  private ownerUrl = ASSETS.DATA.SIDEBAR.OWNER;
 
   public menuItems$!: Observable<MenuConfig>;
 
