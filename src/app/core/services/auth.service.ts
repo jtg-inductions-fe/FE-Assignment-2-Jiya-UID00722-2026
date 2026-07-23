@@ -15,7 +15,7 @@ export class AuthService {
 
   currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   private router = inject(Router);
 

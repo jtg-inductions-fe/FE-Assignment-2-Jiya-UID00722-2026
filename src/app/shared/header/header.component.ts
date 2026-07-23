@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '@core/services/auth.service';
 import { Observable } from 'rxjs';
 import { User } from '@core/models/user.model';
+import { AssetPaths } from '@core/constants/assets';
+import * as Button from '@shared/button/button.types';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,10 @@ import { User } from '@core/models/user.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  currentUser$: Observable<User | null>;
-
-  constructor(private authService: AuthService) {
-    this.currentUser$ = this.authService.currentUser$;
-  }
+  private authService = inject(AuthService);
+  currentUser$: Observable<User | null> = this.authService.currentUser$;
+  readonly Button = Button;
+  imageUrl = AssetPaths.images.LOGO;
 
   logout(): void {
     this.authService.logout();
