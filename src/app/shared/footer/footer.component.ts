@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ASSETS } from '@core/constants/assets';
 
 @Component({
   selector: 'app-footer',
@@ -18,7 +19,7 @@ export class FooterComponent {
       this.iconRegistry.addSvgIcon(
         icon,
         this.sanitizer.bypassSecurityTrustResourceUrl(
-          `assets/icons/${icon}.svg`,
+          `${ASSETS.IMAGES.ICONS}/${icon}.svg`,
         ),
       );
     });

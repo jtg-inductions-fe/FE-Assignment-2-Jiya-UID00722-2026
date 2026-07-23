@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Restaurant, RestaurantDashboard } from '../models/dashboard.model';
+import { ASSETS } from '@core/constants/assets';
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +17,14 @@ export class DashboardService {
   constructor(private http: HttpClient) {}
 
   getRestaurants(): Observable<Restaurant[]> {
-    return this.http.get<Restaurant[]>('assets/mock/restaurants.json');
+    return this.http.get<Restaurant[]>(ASSETS.DATA.RESTAURANTS_LIST);
   }
 
   getDashboardData(restaurantId: string): Observable<RestaurantDashboard> {
     return this.http
-      .get<RestaurantDashboard>(`assets/mock/restaurants/${restaurantId}.json`)
+      .get<RestaurantDashboard>(
+        `${ASSETS.DATA.RESTAURANTS}/${restaurantId}.json`,
+      )
       .pipe(tap(data => this.selectedRestaurantSubject.next(data)));
   }
 
