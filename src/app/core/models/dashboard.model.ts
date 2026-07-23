@@ -44,6 +44,8 @@ export interface RestaurantDashboard {
 export interface Restaurant {
   restaurantId: string;
   restaurantName: string;
+  address?: string;
+  owners?: string[];
 }
 
 export interface DetailsCardItem {

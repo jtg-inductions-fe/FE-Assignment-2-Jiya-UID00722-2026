@@ -1,0 +1,64 @@
+<div class="restaurants-form">
+  <div class="restaurants-form__header">
+    <app-button
+      [variant]="ButtonTypes.ButtonVariant.stroked"
+      [type]="ButtonTypes.ButtonType.button"
+      [color]="ButtonTypes.ButtonColor.primary"
+      icon="keyboard_backspace"
+      (click)="goBack()">
+      BACK
+    </app-button>
+    <div></div>
+    <h1 class="mat-headline-2">
+      {{ mode === 'add' ? 'Add Restaurant' : 'Edit Restaurant' }}
+    </h1>
+    <p>
+      {{
+        mode === 'add'
+          ? 'Add a new partner restaurant to the portal.'
+          : 'Update the restaurant name, address, and owners.'
+      }}
+    </p>
+  </div>
+
+  <mat-card appearance="raised" class="restaurants-form__body">
+    <form [formGroup]="form" class="restaurants-form__content">
+      <app-input
+        [control]="form.controls.restaurantName"
+        label="Restaurant Name"
+        placeholder="e.g., Pizza Palace">
+      </app-input>
+
+      <app-input
+        [control]="form.controls.address"
+        label="Address"
+        placeholder="e.g., 123 Pepperoni Rd, Naples">
+      </app-input>
+
+      <app-email-chip-input
+        label="Owners (emails)"
+        placeholder="Type owner email and press Enter"
+        hint="Add emails of users who own/manage this restaurant."
+        [control]="form.controls.owners">
+      </app-email-chip-input>
+
+      <div class="restaurants-form__actions">
+        <app-button
+          [variant]="ButtonTypes.ButtonVariant.stroked"
+          [type]="ButtonTypes.ButtonType.button"
+          [color]="ButtonTypes.ButtonColor.primary"
+          (click)="goBack()">
+          CANCEL
+        </app-button>
+        <app-button
+          [variant]="ButtonTypes.ButtonVariant.raised"
+          [type]="ButtonTypes.ButtonType.submit"
+          [color]="ButtonTypes.ButtonColor.primary"
+          icon="save"
+          (click)="save()">
+          {{ mode === 'add' ? 'CREATE RESTAURANT' : 'SAVE CHANGES' }}
+        </app-button>
+      </div>
+    </form>
+  </mat-card>
+</div>

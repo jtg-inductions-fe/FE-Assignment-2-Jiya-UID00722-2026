@@ -1,1 +1,18 @@
-<p>view-restaurant works!</p>
+<div class="view-restaurants">
+  <div class="view-restaurants__header">
+    <div>
+      <h1 class="mat-headline-2">Restaurants</h1>
+      <p>Manage partner restaurants and ownership list.</p>
+    </div>
+    <app-button
+      [variant]="Button.ButtonVariant.raised"
+      [color]="Button.ButtonColor.primary"
+      icon="add"
+      class="mw-100"
+      (click)="addRestaurant()">
+      Add Restaurant
+    </app-button>
+  </div>
+  <app-restaurants-list
+    [restaurants]="displayedRestaurants"></app-restaurants-list>
+</div>

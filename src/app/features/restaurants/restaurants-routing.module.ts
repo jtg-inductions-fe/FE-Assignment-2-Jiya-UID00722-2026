@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewRestaurantComponent } from './pages/view-restaurant/view-restaurant.component';
-import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
-import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
+import { RestaurantFormComponent } from '@features/restaurants/components/restaurant-form/restaurant-form.component';
 
 const routes: Routes = [
   {
@@ -11,11 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddRestaurantComponent,
+    component: RestaurantFormComponent,
+    data: { mode: 'add' },
   },
   {
     path: 'edit/:id',
-    component: EditRestaurantComponent,
+    component: RestaurantFormComponent,
+    data: { mode: 'edit' },
   },
 ];
 

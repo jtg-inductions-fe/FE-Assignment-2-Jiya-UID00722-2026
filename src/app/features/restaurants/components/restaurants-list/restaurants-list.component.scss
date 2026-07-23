@@ -1,0 +1,8 @@
+.mat-mdc-header-cell {
+  text-transform: uppercase;
+}
+.restaurants {
+  &__table {
+    overflow-x: auto;
+  }
+}

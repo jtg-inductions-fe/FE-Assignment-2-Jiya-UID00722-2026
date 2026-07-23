@@ -30,6 +30,7 @@ import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
 import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
 import { FooterComponent } from '@shared/footer/footer.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { InputEmailChipsComponent } from '@shared/input-email-chips/input-email-chips.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MenuItemComponent,
     DashboardLayoutComponent,
     FooterComponent,
+    InputEmailChipsComponent,
   ],
   imports: [
     CommonModule,
@@ -86,6 +88,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatDividerModule,
     MatChipsModule,
+    InputEmailChipsComponent,
   ],
   providers: [
     {
