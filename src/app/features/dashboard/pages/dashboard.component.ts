@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   DashboardStats,
@@ -22,6 +22,9 @@ type StatsKey = keyof DashboardStats;
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  private dashboardService = inject(DashboardService);
+  private authService = inject(AuthService);
+
   restaurantControl = new FormControl<Restaurant | string>('');
 
   restaurants: Restaurant[] = [];
@@ -80,11 +83,6 @@ export class DashboardComponent implements OnInit {
 
   topCustomerItems: DetailsCardItem[] = [];
   topSellingDishItems: DetailsCardItem[] = [];
-
-  constructor(
-    private dashboardService: DashboardService,
-    private authService: AuthService,
-  ) {}
 
   currentUser!: User | null;
   isRestaurantOwner = false;

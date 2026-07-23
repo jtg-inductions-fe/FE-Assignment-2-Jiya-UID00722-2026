@@ -60,7 +60,7 @@
   </div>
 
   <app-orders-card
-    *ngIf="orders.length"
+    *ngIf="isRestaurantOwner && orders.length"
     [orders]="orders"
     title="Active Orders"
     subtitle="Manage pending and accepted orders directly from your dashboard."></app-orders-card>
