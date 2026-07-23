@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth.guard';
 import { guestGuard } from '@core/guards/guest.guard';
-import { PageNotFoundComponent } from '@features/page-not-found/page-not-found.component';
+import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -26,7 +26,12 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: PageNotFoundComponent,
+    component: ErrorPageComponent,
+    data: {
+      title: 'Page not found',
+      subtitle:
+        'Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.',
+    },
   },
 ];
 

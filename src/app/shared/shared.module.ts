@@ -12,9 +12,10 @@ import {
   MatSnackBarModule,
 } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent],
+  declarations: [ButtonComponent, InputComponent, ErrorPageComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -33,6 +34,7 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     ReactiveFormsModule,
     NgOptimizedImage,
+    ErrorPageComponent,
   ],
   providers: [
     {
