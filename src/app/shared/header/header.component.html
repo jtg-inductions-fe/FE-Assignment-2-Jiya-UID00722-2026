@@ -1,28 +1,36 @@
-<mat-toolbar color="primary" class="header">
-  <img
-    ngSrc="assets/logo.png"
-    width="50"
-    height="50"
-    alt="Application Logo"
-    class="header__logo" />
+<mat-toolbar class="header">
+  <a href="/" aria-label="Restaurant Management Home">
+    <img
+      [ngSrc]="imageUrl"
+      width="50"
+      height="50"
+      alt="Restaurant Management Logo"
+      class="header__logo" />
+  </a>
 
   <ng-container *ngIf="currentUser$ | async as user">
-    <div [matMenuTriggerFor]="userMenu" class="header__avatar-btn">
+    <app-button
+      id="avatar-menu-button"
+      [matMenuTriggerFor]="userMenu"
+      aria-label="User menu">
       <app-avatar [src]="user.avatar"></app-avatar>
-    </div>
+    </app-button>
 
-    <mat-menu #userMenu="matMenu">
-      <div class="header__user-details">
+    <mat-menu aria-labelledby="avatar-menu-button" #userMenu="matMenu">
+      <div role="none" class="header__user-details">
         <p>{{ user.name }}</p>
         <p>{{ user.email }}</p>
       </div>
 
       <mat-divider class="header__menu-divider"></mat-divider>
-
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        Logout
-      </button>
+      <div mat-menu-item>
+        <app-button
+          [variant]="Button.ButtonVariant.flat"
+          icon="logout"
+          label="Logout"
+          (click)="logout()">
+        </app-button>
+      </div>
     </mat-menu>
   </ng-container>
 </mat-toolbar>

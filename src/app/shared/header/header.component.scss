@@ -2,32 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
-  border-bottom: 0.83px solid #0000001f;
+  height: 6.4rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #0000001f;
 
   &__logo {
-    width: 35px;
-    height: 35px;
+    width: 3.5rem;
+    height: 3.5rem;
     object-fit: contain;
-  }
-
-  &__title {
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  &__avatar-btn {
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
   }
 
   &__user-details {
     padding: 1rem 2rem;
+    font-size: 1.4rem;
   }
 
   &__menu-divider {
-    border-top: 0.83px solid #0000001f;
+    border-top: 1px solid #0000001f;
   }
 }
