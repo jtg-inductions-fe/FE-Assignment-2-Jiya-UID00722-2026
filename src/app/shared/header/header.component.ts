@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@core/services/auth.service';
 import { ASSETS } from '@core/constants/assets';
-import * as Button from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/button/button.types';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +10,10 @@ import * as Button from '@shared/button/button.types';
 })
 export class HeaderComponent {
   private authService = inject(AuthService);
-  currentUser$ = this.authService.currentUser$;
-  readonly Button = Button;
+  readonly ButtonTypes = ButtonTypes;
   imageUrl = ASSETS.IMAGES.LOGO;
+
+  currentUser$ = this.authService.currentUser$;
 
   logout(): void {
     this.authService.logout();
