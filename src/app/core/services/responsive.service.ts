@@ -8,15 +8,13 @@ import { BehaviorSubject } from 'rxjs';
 export class ResponsiveService {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isMobile: true | false = false;
-
-  private isMobileSubject = new BehaviorSubject<true | false>(this.isMobile);
+  private isMobileSubject = new BehaviorSubject<boolean>(false);
 
   isMobile$ = this.isMobileSubject.asObservable();
 
   constructor() {
     this.breakpointObserver.observe('(max-width: 700px)').subscribe(state => {
-      this.isMobileSubject.next(state.breakpoints['(max-width: 700px)']);
+      this.isMobileSubject.next(state.matches);
     });
   }
 }

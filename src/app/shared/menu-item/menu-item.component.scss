@@ -1,21 +1,21 @@
 @use 'abstracts/variables' as *;
+
 .menu-icon {
-  margin-right: 32px;
+  margin-right: 3.2rem;
 }
 
 .nested-list {
-  padding-left: 12px;
+  padding-left: 0;
   border-left: 2px solid #e0e0e0;
-  margin-left: 23px;
-}
-
-.mat-expansion-panel-header {
-  padding: 0 24px 0 16px;
 }
 
 .nav-link.active-link .mat-mdc-list-item-title,
 .nav-link.active-link .mat-icon {
   color: $color-primary;
+}
+
+.mdc-list {
+  padding: 0;
 }
 
 .mdc-list-item__start {
@@ -35,4 +35,12 @@
 
 .mat-body-1 {
   margin: 0;
+}
+
+:host ::ng-deep .nav-expansion .mat-expansion-panel-body {
+  padding: 0.8rem;
+}
+
+.mat-expansion-panel-header {
+  padding-left: 1.4rem;
 }

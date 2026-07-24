@@ -1,4 +1,10 @@
-.custom-sidenav {
-  width: 250px;
-  border-right: 1px solid #e0e0e0;
+@use 'abstracts/variables' as *;
+
+.dashboard-layout {
+  height: 100%;
+
+  &__sidebar {
+    width: 25rem;
+    border-right: 1px solid $color-border;
+  }
 }

@@ -1,0 +1,19 @@
+.layout {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__content {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}

@@ -3,27 +3,22 @@
     <div class="menu-scroll-area">
       <!-- Primary -->
       <mat-nav-list>
-        <app-menu-item
-          *ngFor="let item of navigationData.primary"
-          [item]="item">
-        </app-menu-item>
-      </mat-nav-list>
-
-      <mat-divider class="section-divider"></mat-divider>
-
-      <!-- Secondary -->
-      <mat-nav-list>
-        <app-menu-item
-          *ngFor="let item of navigationData.secondary"
-          [item]="item">
-        </app-menu-item>
+        <div *ngFor="let item of navigationData.primary">
+          <app-menu-item
+            *ngIf="item.type === MenuItemType.menuItem"
+            [item]="item">
+          </app-menu-item>
+          <mat-divider
+            *ngIf="item.type === MenuItemType.divider"
+            class="section-divider"></mat-divider>
+        </div>
       </mat-nav-list>
     </div>
 
     <!-- Footer -->
     <div class="tertiary-footer">
       <a
-        *ngFor="let item of navigationData.tertiary"
+        *ngFor="let item of navigationData.footer"
         mat-icon-button
         [routerLink]="item.url"
         class="footer-btn">

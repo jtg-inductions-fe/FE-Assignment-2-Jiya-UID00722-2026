@@ -23,8 +23,8 @@ export class HeaderComponent {
   public currentSidebarState$ = this.sidebarService.currentSidebarState$;
   public isMobile$ = this.responsiveService.isMobile$;
 
-  toggle(): void {
-    this.sidebarService.toggle();
+  toggleSidebar(): void {
+    this.sidebarService.toggleSidebar();
   }
 
   logout(): void {

@@ -5,22 +5,19 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SidebarService {
-  currentSidebarState: true | false = true;
-  private currentSidebarSubject = new BehaviorSubject<true | false>(
-    this.currentSidebarState,
-  );
+  private currentSidebarSubject = new BehaviorSubject<true | false>(true);
 
   currentSidebarState$ = this.currentSidebarSubject.asObservable();
 
-  toggle(): void {
+  toggleSidebar(): void {
     this.currentSidebarSubject.next(!this.currentSidebarSubject.value);
   }
 
-  open(): void {
+  openSidebar(): void {
     this.currentSidebarSubject.next(true);
   }
 
-  close(): void {
+  closeSidebar(): void {
     this.currentSidebarSubject.next(false);
   }
 

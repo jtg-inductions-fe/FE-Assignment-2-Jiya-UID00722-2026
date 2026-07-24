@@ -1,8 +1,8 @@
-<mat-sidenav-container class="app-layout">
+<mat-sidenav-container class="dashboard-layout">
   <mat-sidenav
     [mode]="(isMobile$ | async) ? 'over' : 'side'"
-    [opened]="(currentSidebarState$ | async) ?? false"
-    class="custom-sidenav">
+    [opened]="currentSidebarState$ | async"
+    class="dashboard-layout__sidebar">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>

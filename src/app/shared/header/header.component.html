@@ -6,7 +6,8 @@
       icon="menu"
       class="header__hamburger"
       [iconSize]="ButtonTypes.IconSize.lg"
-      (btnClick)="toggle()"></app-button>
+      (btnClick)="toggleSidebar()"
+      aria-label="Toggle Sidebar"></app-button>
     <a href="/" aria-label="Restaurant Management Home">
       <img
         [ngSrc]="imageUrl"

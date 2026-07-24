@@ -11,10 +11,12 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <mat-nav-list class="nested-list">
-      <app-menu-item *ngFor="let child of item.children" [item]="child">
-      </app-menu-item>
-    </mat-nav-list>
+    <ng-template matExpansionPanelContent>
+      <mat-nav-list class="nested-list">
+        <app-menu-item *ngFor="let child of item.children" [item]="child">
+        </app-menu-item>
+      </mat-nav-list>
+    </ng-template>
   </mat-expansion-panel>
 </ng-container>
 

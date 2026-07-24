@@ -1,13 +1,17 @@
+export enum MenuItemType {
+  menuItem = 'menuItem',
+  divider = 'divider',
+}
 export interface MenuItem {
-  icon: string;
+  type: MenuItemType;
+  icon?: string;
   label?: string;
-  url: string;
+  url?: string;
   bubble?: string;
   children?: MenuItem[];
 }
 
 export interface MenuConfig {
   primary: MenuItem[];
-  secondary: MenuItem[];
-  tertiary: MenuItem[];
+  footer: MenuItem[];
 }

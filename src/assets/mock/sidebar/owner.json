@@ -4,25 +4,29 @@
       "icon": "pie_chart",
       "label": "Overview",
       "url": "/dashboard",
-      "bubble": ""
+      "bubble": "",
+      "type": "menuItem"
     },
     {
       "icon": "local_dining",
       "label": "Menu",
       "url": "/menu",
-      "bubble": ""
+      "bubble": "",
+      "type": "menuItem"
     },
     {
       "icon": "article",
       "label": "Billing history",
       "url": "/billing",
       "bubble": "",
+      "type": "menuItem",
       "children": [
         {
           "icon": "app_badging",
           "label": "Nested Link",
           "url": "/nested",
-          "bubble": ""
+          "bubble": "",
+          "type": "menuItem"
         }
       ]
     },
@@ -31,12 +35,14 @@
       "label": "Inventory",
       "url": "/inventory",
       "bubble": "",
+      "type": "menuItem",
       "children": [
         {
           "icon": "app_badging",
           "label": "Nested Link",
           "url": "/nested",
-          "bubble": ""
+          "bubble": "",
+          "type": "menuItem"
         }
       ]
     },
@@ -44,36 +50,42 @@
       "icon": "message",
       "label": "Messages",
       "url": "/messages",
-      "bubble": "1"
+      "bubble": "1",
+      "type": "menuItem"
     },
     {
       "icon": "lock",
       "label": "Access",
       "url": "/access",
-      "bubble": ""
-    }
-  ],
-  "secondary": [
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "type": "divider"
+    },
     {
       "icon": "list_alt",
       "label": "My Profile",
       "url": "/profile",
-      "bubble": ""
+      "bubble": "",
+      "type": "menuItem"
     },
     {
       "icon": "add_to_photos",
       "label": "Gallery",
       "url": "/gallery",
-      "bubble": ""
+      "bubble": "",
+      "type": "menuItem"
     },
     {
       "icon": "help_outline",
       "label": "Help",
       "url": "/help",
-      "bubble": ""
+      "bubble": "",
+      "type": "menuItem"
     }
   ],
-  "tertiary": [
+  "footer": [
     {
       "icon": "tune",
       "url": ""
