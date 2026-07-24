@@ -5,7 +5,7 @@ export enum ButtonVariant {
   stroked = 'stroked',
   icon = 'icon',
   fab = 'fab',
-  'mini-fab' = 'mini-fab',
+  miniFab = 'mini-fab',
 }
 export enum ButtonColor {
   primary = 'primary',

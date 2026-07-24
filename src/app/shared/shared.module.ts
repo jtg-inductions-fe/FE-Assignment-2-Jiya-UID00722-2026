@@ -7,7 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '@shared/button/button.component';
 import { InputComponent } from '@shared/input/input.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarModule,
+} from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
@@ -28,6 +31,16 @@ import { MatCardModule } from '@angular/material/card';
     MatSnackBarModule,
     MatCardModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 4000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      },
+    },
   ],
 })
 export class SharedModule {}

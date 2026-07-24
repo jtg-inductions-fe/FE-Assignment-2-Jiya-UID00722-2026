@@ -2,7 +2,7 @@
   <!-- Raised Button -->
 
   <button
-    *ngSwitchCase="'raised'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.raised"
     mat-raised-button
     [type]="type"
     [disabled]="disabled"
@@ -15,7 +15,7 @@
   <!-- Flat Button -->
 
   <button
-    *ngSwitchCase="'flat'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.flat"
     mat-flat-button
     [type]="type"
     [disabled]="disabled"
@@ -27,7 +27,7 @@
 
   <!-- Stroked Button -->
   <button
-    *ngSwitchCase="'stroked'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.stroked"
     mat-stroked-button
     [type]="type"
     [disabled]="disabled"
@@ -39,7 +39,7 @@
 
   <!-- 4. Icon Button -->
   <button
-    *ngSwitchCase="'icon'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.icon"
     mat-icon-button
     [type]="type"
     [disabled]="disabled"
@@ -51,7 +51,7 @@
 
   <!-- 5. FAB Button -->
   <button
-    *ngSwitchCase="'fab'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.fab"
     mat-fab
     [type]="type"
     [disabled]="disabled"
@@ -63,7 +63,7 @@
 
   <!-- 6. Mini FAB Button -->
   <button
-    *ngSwitchCase="'mini-fab'"
+    *ngSwitchCase="ButtonTypes.ButtonVariant.miniFab"
     mat-mini-fab
     [type]="type"
     [disabled]="disabled"

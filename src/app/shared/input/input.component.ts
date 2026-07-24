@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { InputAppearace, InputType } from './input.types';
-import * as Button from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/button/button.types';
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  styleUrls: [],
 })
 export class InputComponent {
-  readonly Button = Button;
+  readonly ButtonTypes = ButtonTypes;
 
   @Input({ required: true }) control!: FormControl;
 

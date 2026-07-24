@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { User } from '@core/models/user.model';
-import { AssetPaths } from '@core/constants/assets';
+import { ASSETS } from '@core/constants/assets';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(AssetPaths.data.USERS).pipe(
+    return this.http.get<User[]>(ASSETS.DATA.USERS).pipe(
       map(users => {
         const user = users.find(
           ({ email: userEmail, password: userPassword }) =>

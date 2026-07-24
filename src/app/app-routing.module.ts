@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth.guard';
-import { loggedInGuard } from '@core/guards/logged-in.guard';
+import { guestGuard } from '@core/guards/guest.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canMatch: [loggedInGuard],
+    canMatch: [guestGuard],
     loadChildren: () =>
       import('./features/auth/auth.module').then(m => m.AuthModule),
   },

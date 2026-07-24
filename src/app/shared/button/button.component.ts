@@ -5,12 +5,7 @@ import {
   EventEmitter,
   ElementRef,
 } from '@angular/core';
-import {
-  ButtonColor,
-  ButtonType,
-  ButtonVariant,
-  IconPosition,
-} from './button.types';
+import * as ButtonTypes from '@shared/button/button.types';
 
 @Component({
   selector: 'app-button',
@@ -18,15 +13,17 @@ import {
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() variant: ButtonVariant = ButtonVariant.basic;
-  @Input() color?: ButtonColor;
-  @Input() type: ButtonType = ButtonType.button;
+  @Input() variant = ButtonTypes.ButtonVariant.basic;
+  @Input() type = ButtonTypes.ButtonType.button;
   @Input() disabled = false;
+  @Input() iconPosition = ButtonTypes.IconPosition.prefix;
+  @Input() color?: ButtonTypes.ButtonColor;
   @Input() icon?: string;
-  @Input() iconPosition: IconPosition = IconPosition.prefix;
   @Input() label?: string;
 
   @Output() btnClick = new EventEmitter<MouseEvent>();
+
+  readonly ButtonTypes = ButtonTypes;
 
   constructor(private el: ElementRef) {}
 

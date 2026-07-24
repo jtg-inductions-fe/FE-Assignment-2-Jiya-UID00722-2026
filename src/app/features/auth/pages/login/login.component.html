@@ -9,24 +9,27 @@
     </mat-card-header>
 
     <mat-card-content class="auth-card__body">
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <form
+        class="auth-card__form"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()">
         <app-input
           [control]="loginForm.controls.email"
           label="Email Address"
-          [type]="Input.InputType.email">
+          [type]="InputTypes.InputType.email">
         </app-input>
 
         <app-input
           [control]="loginForm.controls.password"
           label="Password"
-          [type]="Input.InputType.password">
+          [type]="InputTypes.InputType.password">
         </app-input>
 
         <app-button
-          [variant]="Button.ButtonVariant.raised"
-          [type]="Button.ButtonType.submit"
+          [variant]="ButtonTypes.ButtonVariant.raised"
+          [type]="ButtonTypes.ButtonType.submit"
           [disabled]="loading"
-          [color]="Button.ButtonColor.primary"
+          [color]="ButtonTypes.ButtonColor.primary"
           class="w-100"
           >{{ loading ? 'LOGGING IN...' : 'LOGIN' }}</app-button
         >

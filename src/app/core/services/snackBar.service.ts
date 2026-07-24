@@ -10,9 +10,6 @@ export class SnackbarService {
 
   showNotification(message: string, type: SnackbarType) {
     this.snackBar.open(message, '', {
-      duration: 4000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
       panelClass: [type],
     });
   }

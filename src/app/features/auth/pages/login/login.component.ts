@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
-import * as Input from '@shared/input/input.types';
-import * as Button from '@shared/button/button.types';
+import * as InputTypes from '@shared/input/input.types';
+import * as ButtonTypes from '@shared/button/button.types';
 import { SnackbarService } from '@core/services/snackBar.service';
 import { SnackbarType } from '@core/models/snackbar.model';
 @Component({
@@ -12,8 +12,8 @@ import { SnackbarType } from '@core/models/snackbar.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  readonly Input = Input;
-  readonly Button = Button;
+  readonly InputTypes = InputTypes;
+  readonly ButtonTypes = ButtonTypes;
 
   private returnUrl = '/';
 
