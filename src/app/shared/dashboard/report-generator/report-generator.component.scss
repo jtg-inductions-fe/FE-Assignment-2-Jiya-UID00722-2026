@@ -13,10 +13,6 @@
     }
   }
 
-  &__details {
-    width: 100%;
-  }
-
   &__actions {
     display: flex;
     gap: 1rem;
@@ -25,8 +21,7 @@
 
     @include media-up(lg) {
       flex-direction: row;
-      width: 100%;
+      width: auto;
     }
   }
-
 }
