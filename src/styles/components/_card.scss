@@ -3,3 +3,9 @@
 .mat-mdc-card {
   --mdc-elevated-card-container-elevation: #{$box-shadow};
 }
+
+mat-card.mat-mdc-card {
+  --mdc-elevated-card-container-shape: 12px;
+  --mdc-outlined-card-container-shape: 12px;
+  --mdc-filled-card-container-shape: 12px;
+}
