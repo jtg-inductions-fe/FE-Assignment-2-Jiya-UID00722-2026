@@ -17,14 +17,13 @@
     {
       "icon": "article",
       "label": "Billing history",
-      "url": "/billing",
       "bubble": "",
       "type": "menuItem",
       "children": [
         {
           "icon": "app_badging",
-          "label": "Nested Link",
-          "url": "/nested",
+          "label": "Details",
+          "url": "/billing/details",
           "bubble": "",
           "type": "menuItem"
         }
@@ -33,14 +32,13 @@
     {
       "icon": "shopping_bag",
       "label": "Inventory",
-      "url": "/inventory",
       "bubble": "",
       "type": "menuItem",
       "children": [
         {
           "icon": "app_badging",
-          "label": "Nested Link",
-          "url": "/nested",
+          "label": "Details",
+          "url": "/inventory/details",
           "bubble": "",
           "type": "menuItem"
         }

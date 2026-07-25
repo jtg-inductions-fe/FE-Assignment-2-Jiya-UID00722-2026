@@ -20,7 +20,7 @@
       <a
         *ngFor="let item of navigationData.footer"
         mat-icon-button
-        [routerLink]="item.url"
+        [routerLink]="item.url || null"
         class="footer-btn">
         <mat-icon>{{ item.icon }}</mat-icon>
       </a>

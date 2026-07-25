@@ -24,14 +24,13 @@
     {
       "icon": "lock",
       "label": "Access",
-      "url": "/access",
       "bubble": "",
       "type": "menuItem",
       "children": [
         {
           "icon": "pie_chart",
-          "label": "Nested",
-          "url": "/access/nested",
+          "label": "Details",
+          "url": "/access/details",
           "bubble": "",
           "type": "menuItem"
         }

@@ -22,7 +22,8 @@
   color: #000000;
 }
 
-.mdc-list-item .badge {
+.mdc-list-item .badge,
+.mat-expansion-panel-header-title .badge {
   background-color: #fde8e8;
   color: #e02424;
   min-width: 24px;
