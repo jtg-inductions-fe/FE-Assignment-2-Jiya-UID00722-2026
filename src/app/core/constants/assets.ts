@@ -3,6 +3,7 @@ export const ASSETS = {
     USERS: 'assets/mock/users.json',
   },
   IMAGES: {
-    NOT_FOUND: '/assets/404.png',
+    NOT_FOUND: '/assets/404.webp',
+    BAD_REQUEST: '/assets/400.webp',
   },
 };

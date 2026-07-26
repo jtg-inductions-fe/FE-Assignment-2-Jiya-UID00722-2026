@@ -9,7 +9,9 @@ export const ErrorMap: Partial<Record<HttpErrorCode, ErrorContent>> = {
     imgUrl: ASSETS.IMAGES.NOT_FOUND,
   },
   400: {
-    title: 'Something went wrong',
-    subtitle: 'Please try again later',
+    title: 'Something has gone seriously wrong',
+    subtitle:
+      "It's always time for a coffee break We should be back by the time you finish your coffee.",
+    imgUrl: ASSETS.IMAGES.BAD_REQUEST,
   },
 };
