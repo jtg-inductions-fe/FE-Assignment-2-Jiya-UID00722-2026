@@ -6,6 +6,7 @@ import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 @Component({
   selector: 'app-email-chip-input',
   templateUrl: './input-email-chips.component.html',
+  styleUrls: ['./input-email-chips.component.scss'],
 })
 export class InputEmailChipsComponent {
   @Input() label = '';
@@ -15,8 +16,6 @@ export class InputEmailChipsComponent {
   control!: FormControl<string[]>;
 
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-
-  addOnBlur = true;
 
   emailControl = new FormControl('', [Validators.email]);
 
@@ -70,7 +69,12 @@ export class InputEmailChipsComponent {
 
     const emailControl = new FormControl(value, Validators.email);
 
-    if (emailControl.valid) {
+    if (
+      emailControl.valid &&
+      !this.emails.some(
+        (email, emailIndex) => emailIndex !== index && email === value,
+      )
+    ) {
       const updated = [...this.emails];
 
       updated[index] = value;

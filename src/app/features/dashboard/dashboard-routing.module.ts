@@ -5,6 +5,7 @@ import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-l
 import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 import { roleGuard } from '@core/guards/role.guard';
 import { UserRole } from '@core/models/user.model';
+import { HttpErrorCode } from '@core/models/errors.model';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
         path: '**',
         component: ErrorPageComponent,
         data: {
-          error: 404,
+          variant: HttpErrorCode.NotFound,
         },
       },
     ],

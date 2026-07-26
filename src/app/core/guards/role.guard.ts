@@ -9,6 +9,11 @@ export const roleGuard: CanMatchFn = route => {
   const allowedRoles = route.data?.['roles'] as UserRole[];
   const userRole = authService.getUserRole();
 
+  // missing or invalid roles configuration
+  if (!Array.isArray(allowedRoles) || allowedRoles.length === 0) {
+    return router.createUrlTree(['/dashboard']);
+  }
+
   if (userRole && allowedRoles.includes(userRole)) {
     return true;
   }

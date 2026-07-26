@@ -1,5 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Restaurant } from '@core/models/dashboard.model';
@@ -22,11 +27,17 @@ export class RestaurantFormComponent implements OnInit {
   mode!: 'add' | 'edit';
   restaurantId = '';
 
+  requiredArray(control: AbstractControl): ValidationErrors | null {
+    return Array.isArray(control.value) && control.value.length > 0
+      ? null
+      : { required: true };
+  }
+
   form = this.fb.group({
     restaurantName: ['', Validators.required],
     address: ['', Validators.required],
     owners: this.fb.nonNullable.control<string[]>([], {
-      validators: [Validators.required],
+      validators: [this.requiredArray],
     }),
   });
 
@@ -36,7 +47,7 @@ export class RestaurantFormComponent implements OnInit {
     if (this.mode === 'edit') {
       const id = this.route.snapshot.paramMap.get('id');
 
-      if (!id) {
+      if (!id || !this.restaurantService.restaurantExists(id)) {
         this.goBack();
         return;
       }
@@ -47,6 +58,7 @@ export class RestaurantFormComponent implements OnInit {
         .getRestaurantDetailById(this.restaurantId)
         .subscribe(restaurant => {
           if (!restaurant) {
+            this.goBack();
             return;
           }
 

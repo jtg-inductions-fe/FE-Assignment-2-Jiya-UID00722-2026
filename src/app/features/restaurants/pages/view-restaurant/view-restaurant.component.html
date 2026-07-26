@@ -14,5 +14,5 @@
     </app-button>
   </div>
   <app-restaurants-list
-    [restaurants]="displayedRestaurants"></app-restaurants-list>
+    [restaurants]="(restaurants$ | async) ?? []"></app-restaurants-list>
 </div>

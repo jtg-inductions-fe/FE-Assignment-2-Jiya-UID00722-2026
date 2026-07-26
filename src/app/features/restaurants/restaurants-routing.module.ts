@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewRestaurantComponent } from './pages/view-restaurant/view-restaurant.component';
 import { RestaurantFormComponent } from '@features/restaurants/components/restaurant-form/restaurant-form.component';
+import { RestaurantFormMode } from '@core/models/dashboard.model';
 
 const routes: Routes = [
   {
@@ -11,12 +12,12 @@ const routes: Routes = [
   {
     path: 'add',
     component: RestaurantFormComponent,
-    data: { mode: 'add' },
+    data: { mode: RestaurantFormMode.ADD },
   },
   {
     path: 'edit/:id',
     component: RestaurantFormComponent,
-    data: { mode: 'edit' },
+    data: { mode: RestaurantFormMode.EDIT },
   },
 ];
 

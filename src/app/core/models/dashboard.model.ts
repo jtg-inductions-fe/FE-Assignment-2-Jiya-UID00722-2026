@@ -79,3 +79,8 @@ export interface FooterLink {
   href: string;
   icon: string;
 }
+
+export enum RestaurantFormMode {
+  ADD = 'add',
+  EDIT = 'edit',
+}

@@ -16,6 +16,8 @@ export class RestaurantsService {
 
   private loaded = false;
 
+  // Load restaurants only once and reuse the data on further calls
+
   loadRestaurantsDetails(): Observable<Restaurant[]> {
     if (this.loaded) {
       return this.restaurants$;
@@ -30,10 +32,6 @@ export class RestaurantsService {
           this.restaurantsSubject.next(restaurants);
         }),
       );
-  }
-
-  getRestaurantsDetails(): Observable<Restaurant[]> {
-    return this.restaurants$;
   }
 
   getCurrentRestaurantsDetails(): Restaurant[] {
@@ -64,10 +62,6 @@ export class RestaurantsService {
     );
 
     this.restaurantsSubject.next(updated);
-  }
-
-  setRestaurants(restaurants: Restaurant[]): void {
-    this.restaurantsSubject.next(restaurants);
   }
 
   restaurantExists(restaurantId: string): boolean {
