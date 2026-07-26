@@ -12,7 +12,8 @@
     <app-button
       id="avatar-menu-button"
       [matMenuTriggerFor]="userMenu"
-      aria-label="User menu">
+      aria-label="User menu"
+      [variant]="ButtonTypes.ButtonVariant.avatar">
       <app-avatar [src]="user.avatar"></app-avatar>
     </app-button>
 
@@ -23,14 +24,6 @@
       </div>
 
       <mat-divider class="header__menu-divider"></mat-divider>
-      <div mat-menu-item>
-        <app-button
-          [variant]="ButtonTypes.ButtonVariant.flat"
-          icon="logout"
-          label="Logout"
-          (click)="logout()">
-        </app-button>
-      </div>
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>

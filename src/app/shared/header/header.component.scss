@@ -1,10 +1,12 @@
+@use 'abstracts/variables' as *;
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 6.4rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #0000001f;
+  background-color: $color-background;
+  border-bottom: 1px solid $color-border;
 
   &__logo {
     width: 3.5rem;
@@ -18,6 +20,6 @@
   }
 
   &__menu-divider {
-    border-top: 1px solid #0000001f;
+    border-top: 1px solid $color-border;
   }
 }
