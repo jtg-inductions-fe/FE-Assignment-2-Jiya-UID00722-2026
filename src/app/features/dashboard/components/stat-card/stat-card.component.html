@@ -9,8 +9,10 @@
         {{ value }}
       </span>
     </div>
-    <div [style.background-color]="iconBg" class="stat-card__icon-bg">
-      <mat-icon *ngIf="icon" class="stat-card__icon" [style.color]="color">
+    <div
+      class="stat-card__icon-bg"
+      [ngClass]="'stat-card__icon-bg--' + variant">
+      <mat-icon class="stat-card__icon">
         {{ icon }}
       </mat-icon>
     </div>

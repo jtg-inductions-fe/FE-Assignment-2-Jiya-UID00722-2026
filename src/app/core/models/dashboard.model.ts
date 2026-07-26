@@ -8,7 +8,7 @@ export interface DashboardStats {
 export interface TopCustomer {
   name: string;
   email: string;
-  orderAmount: number;
+  orderAmount: string;
   avatar: string;
 }
 
@@ -51,4 +51,29 @@ export interface DetailsCardItem {
   subtitle?: string;
   value: string | number;
   image?: string;
+}
+
+export type StatsKey = keyof DashboardStats;
+
+export interface StatsCard {
+  title: string;
+  key: StatsKey;
+  icon: string;
+  variant: StatsCardVariant;
+}
+
+export enum StatsCardVariant {
+  success = 'success',
+  info = 'info',
+  warning = 'warning',
+  primary = 'primary',
+}
+
+export interface RestaurantsResponse {
+  restaurants: Restaurant[];
+}
+
+export interface FooterLink {
+  href: string;
+  icon: string;
 }

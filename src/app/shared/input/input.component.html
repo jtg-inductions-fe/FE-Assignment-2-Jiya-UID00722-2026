@@ -4,9 +4,18 @@
   <mat-icon *ngIf="prefixIcon" matPrefix>{{ prefixIcon }}</mat-icon>
 
   <input
+    *ngIf="autocomplete"
     matInput
     [formControl]="control"
-    [matAutocomplete]="autocomplete!"
+    [matAutocomplete]="autocomplete"
+    [type]="type === 'password' ? (hidePassword ? 'password' : 'text') : type"
+    [placeholder]="placeholder"
+    [readonly]="readonly" />
+
+  <input
+    *ngIf="!autocomplete"
+    matInput
+    [formControl]="control"
     [type]="type === 'password' ? (hidePassword ? 'password' : 'text') : type"
     [placeholder]="placeholder"
     [readonly]="readonly" />

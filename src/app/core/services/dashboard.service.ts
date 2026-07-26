@@ -1,34 +1,27 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { Restaurant, RestaurantDashboard } from '../models/dashboard.model';
+import {
+  RestaurantDashboard,
+  RestaurantsResponse,
+} from '../models/dashboard.model';
+
 import { ASSETS } from '@core/constants/assets';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardService {
-  private selectedRestaurantSubject =
-    new BehaviorSubject<RestaurantDashboard | null>(null);
+  private http = inject(HttpClient);
 
-  selectedRestaurant$ = this.selectedRestaurantSubject.asObservable();
-
-  constructor(private http: HttpClient) {}
-
-  getRestaurants(): Observable<Restaurant[]> {
-    return this.http.get<Restaurant[]>(ASSETS.DATA.RESTAURANTS_LIST);
+  getRestaurants(): Observable<RestaurantsResponse> {
+    return this.http.get<RestaurantsResponse>(ASSETS.DATA.RESTAURANTS_LIST);
   }
 
   getDashboardData(restaurantId: string): Observable<RestaurantDashboard> {
-    return this.http
-      .get<RestaurantDashboard>(
-        `${ASSETS.DATA.RESTAURANTS}/${restaurantId}.json`,
-      )
-      .pipe(tap(data => this.selectedRestaurantSubject.next(data)));
-  }
-
-  selectRestaurant(data: RestaurantDashboard): void {
-    this.selectedRestaurantSubject.next(data);
+    return this.http.get<RestaurantDashboard>(
+      `${ASSETS.DATA.RESTAURANTS}/${restaurantId}.json`,
+    );
   }
 }

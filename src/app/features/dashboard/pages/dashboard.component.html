@@ -13,7 +13,7 @@
         </p>
       </ng-template>
     </div>
-    <form [hidden]="isRestaurantOwner">
+    <form *ngIf="!isRestaurantOwner" (ngSubmit)="$event.preventDefault()">
       <app-input
         [control]="restaurantControl"
         label="View Dashboard As"
@@ -39,8 +39,7 @@
       [title]="item.title"
       [value]="stats[item.key].toString()"
       [icon]="item.icon"
-      [color]="item.color"
-      [iconBg]="item.iconBg"
+      [variant]="item.variant"
       class="overview__stat">
     </app-stat-card>
   </div>
@@ -62,8 +61,10 @@
   <app-orders-card
     *ngIf="isRestaurantOwner && orders.length"
     [orders]="orders"
-    title="Active Orders"
-    subtitle="Manage pending and accepted orders directly from your dashboard."></app-orders-card>
+    (orderAccepted)="acceptOrder($event)"
+    (orderRejected)="rejectOrder($event)"
+    (orderCompleted)="completeOrder($event)">
+  </app-orders-card>
 
   <app-footer></app-footer>
 </div>

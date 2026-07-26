@@ -12,16 +12,15 @@
     display: flex;
     gap: 1rem;
     height: inherit;
-    justify-content: center;
     align-items: center;
   }
 
-  &__actions-cell {
-    height: inherit;
+  &__table-wrapper {
+    overflow-x: auto;
   }
 
   &__table {
-    overflow-x: auto;
+    width: max-content;
   }
 
   &__chip {

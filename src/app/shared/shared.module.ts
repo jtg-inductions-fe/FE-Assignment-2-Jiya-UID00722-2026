@@ -29,10 +29,6 @@ import { SidebarComponent } from '@shared/sidebar/sidebar.component';
 import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
 import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
 import { FooterComponent } from '@shared/footer/footer.component';
-import { StatCardComponent } from '@shared/dashboard/stat-card/stat-card.component';
-import { ReportGeneratorComponent } from '@shared/dashboard/report-generator/report-generator.component';
-import { DetailsCardComponent } from '@shared/dashboard/details-card/details-card.component';
-import { OrdersCardComponent } from '@shared/dashboard/orders-card/orders-card.component';
 import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
@@ -46,10 +42,6 @@ import { MatChipsModule } from '@angular/material/chips';
     MenuItemComponent,
     DashboardLayoutComponent,
     FooterComponent,
-    StatCardComponent,
-    ReportGeneratorComponent,
-    DetailsCardComponent,
-    OrdersCardComponent,
   ],
   imports: [
     CommonModule,
@@ -90,10 +82,10 @@ import { MatChipsModule } from '@angular/material/chips';
     MatBadgeModule,
     FooterComponent,
     MatAutocompleteModule,
-    StatCardComponent,
-    ReportGeneratorComponent,
-    DetailsCardComponent,
-    OrdersCardComponent,
+    MatIconModule,
+    MatTableModule,
+    MatDividerModule,
+    MatChipsModule,
   ],
   providers: [
     {

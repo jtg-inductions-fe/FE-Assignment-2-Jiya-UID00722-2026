@@ -2,6 +2,15 @@
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
+  max-height: 42rem;
+  overflow: auto;
+  padding: 2.4rem;
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &__card {
     display: flex;
@@ -16,4 +25,8 @@
   &__title {
     margin-bottom: 0;
   }
+}
+
+.mat-mdc-card-content:first-child {
+  padding: 2.4rem;
 }

@@ -10,31 +10,31 @@
       "name": "Albert Wright",
       "email": "albertwright@demo.com",
       "orderAmount": "$60",
-      "avatar": "assets/avatar_05.png"
+      "avatar": "assets/avatar_05.webp"
     },
     {
       "name": "Karen Nelson",
       "email": "karennelson@demo.com",
       "orderAmount": "$58",
-      "avatar": "assets/avatar_01.png"
+      "avatar": "assets/avatar_01.webp"
     },
     {
       "name": "Dave Miller",
       "email": "davemiller@demo.com",
       "orderAmount": "$48",
-      "avatar": "assets/avatar_02.png"
+      "avatar": "assets/avatar_02.webp"
     },
     {
       "name": "Lana Byrd",
       "email": "lanabyrd@demo.com",
       "orderAmount": "$42",
-      "avatar": "assets/avatar_03.png"
+      "avatar": "assets/avatar_03.webp"
     },
     {
       "name": "Neil Sims",
       "email": "neilsims@demo.com",
       "orderAmount": "$60",
-      "avatar": "assets/avatar_04.png"
+      "avatar": "assets/avatar_04.webp"
     }
   ],
   "topSellingDishes": [

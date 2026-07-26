@@ -2,12 +2,12 @@
   <mat-card-content class="details">
     <span class="mat-headline-5">{{ label }}</span>
 
-    <div *ngFor="let item of details">
+    <div *ngFor="let item of details; let last = last">
       <div class="details__card">
         <div class="details__content">
           <app-avatar
             *ngIf="item.image"
-            alt="item.title"
+            [alt]="item.title"
             [src]="item.image"
             width="50"
             height="50"
@@ -24,7 +24,7 @@
         <p class="mat-body-1">{{ item.value }}</p>
       </div>
 
-      <mat-divider></mat-divider>
+      <mat-divider *ngIf="!last"></mat-divider>
     </div>
   </mat-card-content>
 </mat-card>

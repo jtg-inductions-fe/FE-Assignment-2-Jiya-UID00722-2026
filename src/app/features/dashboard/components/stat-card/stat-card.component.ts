@@ -1,4 +1,5 @@
 import { Input, Component } from '@angular/core';
+import { StatsCardVariant } from '@core/models/dashboard.model';
 
 @Component({
   selector: 'app-stat-card',
@@ -9,6 +10,5 @@ export class StatCardComponent {
   @Input() title = '';
   @Input() value = '';
   @Input() icon = '';
-  @Input() color = 'primary';
-  @Input() iconBg = '';
+  @Input() variant: StatsCardVariant = StatsCardVariant.primary;
 }

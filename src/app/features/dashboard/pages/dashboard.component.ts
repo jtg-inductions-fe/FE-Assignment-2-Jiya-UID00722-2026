@@ -1,20 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { catchError, EMPTY, map, Observable, startWith } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   DashboardStats,
+  DetailsCardItem,
   Order,
   Restaurant,
   RestaurantDashboard,
+  Status,
+  StatsCard,
   TopCustomer,
   TopSellingDish,
-  DetailsCardItem,
 } from '@core/models/dashboard.model';
 import { User, UserRole } from '@core/models/user.model';
 import { AuthService } from '@core/services/auth.service';
 import { DashboardService } from '@core/services/dashboard.service';
-import { map, Observable, startWith } from 'rxjs';
-
-type StatsKey = keyof DashboardStats;
+import { STATS_CARDS } from '@core/constants/dashboard';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +26,7 @@ type StatsKey = keyof DashboardStats;
 export class DashboardComponent implements OnInit {
   private dashboardService = inject(DashboardService);
   private authService = inject(AuthService);
+  private destroyRef = inject(DestroyRef);
 
   restaurantControl = new FormControl<Restaurant | string>('');
 
@@ -40,55 +43,27 @@ export class DashboardComponent implements OnInit {
     activeRestaurants: 0,
   };
 
-  statsCards: {
-    title: string;
-    key: StatsKey;
-    icon: string;
-    color: string;
-    iconBg: string;
-  }[] = [
-    {
-      title: 'Total Revenue',
-      key: 'revenue',
-      icon: 'attach_money',
-      color: '#2E7D32',
-      iconBg: '#4CAF5014',
-    },
-    {
-      title: 'Total Orders',
-      key: 'totalOrders',
-      icon: 'shopping_cart',
-      color: '#0288D1',
-      iconBg: '#03A9F414',
-    },
-    {
-      title: 'Completed Orders',
-      key: 'completedOrders',
-      icon: 'check_circle',
-      color: '#ED6C02',
-      iconBg: '#FF980014',
-    },
-    {
-      title: 'Active Restaurants',
-      key: 'activeRestaurants',
-      icon: 'restaurant',
-      color: '#0E9F6E',
-      iconBg: '#9C27B014',
-    },
-  ];
+  statsCards: StatsCard[] = STATS_CARDS;
 
   topCustomers: TopCustomer[] = [];
   topSellingDishes: TopSellingDish[] = [];
+
   orders: Order[] = [];
 
   topCustomerItems: DetailsCardItem[] = [];
   topSellingDishItems: DetailsCardItem[] = [];
 
   currentUser!: User | null;
+
   isRestaurantOwner = false;
+
+  isLoading = false;
+
+  errorMessage = '';
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+
     this.isRestaurantOwner =
       this.currentUser?.role === UserRole.RESTAURANT_OWNER;
 
@@ -100,39 +75,89 @@ export class DashboardComponent implements OnInit {
   }
 
   private loadRestaurants(): void {
-    this.dashboardService.getRestaurants().subscribe((res: any) => {
-      this.restaurants = res.restaurants;
+    this.isLoading = true;
+    this.errorMessage = '';
 
-      this.filteredRestaurants = this.restaurantControl.valueChanges.pipe(
-        startWith(''),
-        map(value => {
-          const name =
-            typeof value === 'string' ? value : (value?.restaurantName ?? '');
+    this.dashboardService
+      .getRestaurants()
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
 
-          return this.filter(name);
+        catchError(() => {
+          this.errorMessage = 'Unable to load restaurants.';
+
+          this.isLoading = false;
+
+          return EMPTY;
         }),
-      );
+      )
+      .subscribe(res => {
+        this.isLoading = false;
 
-      if (this.restaurants.length) {
-        this.restaurantControl.setValue(this.restaurants[0]);
-        this.loadDashboard(this.restaurants[0]);
-      }
-    });
+        this.restaurants = res.restaurants;
+
+        this.filteredRestaurants = this.restaurantControl.valueChanges.pipe(
+          startWith(''),
+
+          map(value => {
+            const name =
+              typeof value === 'string' ? value : (value?.restaurantName ?? '');
+
+            return this.filterRestaurants(name);
+          }),
+
+          takeUntilDestroyed(this.destroyRef),
+        );
+
+        if (this.restaurants.length) {
+          this.restaurantControl.setValue(this.restaurants[0]);
+
+          this.loadDashboard(this.restaurants[0]);
+        }
+      });
   }
 
   private loadDashboardForOwner(): void {
-    if (!this.currentUser?.restaurantId) {
+    const restaurantId = this.currentUser?.restaurantId;
+
+    if (!restaurantId) {
+      this.errorMessage = 'Restaurant information is missing.';
+
       return;
     }
 
+    this.loadDashboardById(restaurantId);
+  }
+
+  private loadDashboard(restaurant: Restaurant): void {
+    this.loadDashboardById(restaurant.restaurantId);
+  }
+
+  private loadDashboardById(restaurantId: string): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
     this.dashboardService
-      .getDashboardData(this.currentUser.restaurantId)
+      .getDashboardData(restaurantId)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+
+        catchError(() => {
+          this.errorMessage = 'Unable to load dashboard data.';
+
+          this.isLoading = false;
+
+          return EMPTY;
+        }),
+      )
       .subscribe(res => {
+        this.isLoading = false;
+
         this.setDashboardData(res);
       });
   }
 
-  private filter(value: string): Restaurant[] {
+  private filterRestaurants(value: string): Restaurant[] {
     const filterValue = value.toLowerCase().trim();
 
     return this.restaurants.filter(restaurant =>
@@ -148,18 +173,15 @@ export class DashboardComponent implements OnInit {
     this.loadDashboard(restaurant);
   }
 
-  private loadDashboard(restaurant: Restaurant): void {
-    this.dashboardService
-      .getDashboardData(restaurant.restaurantId)
-      .subscribe(res => this.setDashboardData(res));
-  }
-
   private setDashboardData(res: RestaurantDashboard): void {
     this.dashboardData = res;
 
     this.stats = res.stats;
+
     this.topCustomers = res.topCustomers;
+
     this.topSellingDishes = res.topSellingDishes;
+
     this.orders = res.orders ?? [];
 
     this.topCustomerItems = this.topCustomers.map(customer => ({
@@ -172,7 +194,28 @@ export class DashboardComponent implements OnInit {
     this.topSellingDishItems = this.topSellingDishes.map(dish => ({
       title: dish.dishName,
       subtitle: dish.restaurantName,
-      value: `${dish.numberOfOrders} orders`,
+      value: `${dish.numberOfOrders} ${
+        dish.numberOfOrders === 1 ? 'order' : 'orders'
+      }`,
     }));
+  }
+
+  acceptOrder(order: Order): void {
+    this.orders = this.orders.map(item =>
+      item.orderId === order.orderId
+        ? {
+            ...item,
+            status: Status.Accepted,
+          }
+        : item,
+    );
+  }
+
+  rejectOrder(order: Order): void {
+    this.orders = this.orders.filter(item => item.orderId !== order.orderId);
+  }
+
+  completeOrder(order: Order): void {
+    this.orders = this.orders.filter(item => item.orderId !== order.orderId);
   }
 }
