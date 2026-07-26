@@ -23,33 +23,41 @@ export class SidebarComponent implements OnInit {
   public menuItems$!: Observable<MenuConfig>;
 
   ngOnInit(): void {
+    this.loadMenuItems();
+  }
+
+  private loadMenuItems(): void {
+    const targetUrl = this.getMenuUrl();
+
+    if (!targetUrl) {
+      this.menuItems$ = this.emptyMenu();
+      return;
+    }
+
+    this.menuItems$ = this.http
+      .get<MenuConfig>(targetUrl)
+      .pipe(catchError(() => this.emptyMenu()));
+  }
+
+  private getMenuUrl(): string | null {
     const role = this.authService.getUserRole();
-    let targetUrl: string;
 
     switch (role) {
       case UserRole.ADMIN:
-        targetUrl = this.adminUrl;
-        break;
+        return this.adminUrl;
 
       case UserRole.RESTAURANT_OWNER:
-        targetUrl = this.ownerUrl;
-        break;
+        return this.ownerUrl;
 
       default:
-        this.menuItems$ = of({
-          primary: [],
-          footer: [],
-        });
-        return;
+        return null;
     }
+  }
 
-    this.menuItems$ = this.http.get<MenuConfig>(targetUrl).pipe(
-      catchError(() =>
-        of({
-          primary: [],
-          footer: [],
-        }),
-      ),
-    );
+  private emptyMenu(): Observable<MenuConfig> {
+    return of({
+      primary: [],
+      footer: [],
+    });
   }
 }

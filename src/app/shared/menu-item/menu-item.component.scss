@@ -6,7 +6,7 @@
 
 .nested-list {
   padding-left: 0;
-  border-left: 2px solid #e0e0e0;
+  border-left: 0.2rem solid $color-border;
 }
 
 .nav-link.active-link .mat-mdc-list-item-title,
@@ -18,16 +18,17 @@
   padding: 0;
 }
 
-.mdc-list-item__start {
-  color: #000000;
+.nav-link .mat-mdc-list-item-icon,
+.nav-link .mat-mdc-list-item-title {
+  color: $color-background-contrast;
 }
 
 .mdc-list-item .badge,
 .mat-expansion-panel-header-title .badge {
-  background-color: #fde8e8;
-  color: #e02424;
-  min-width: 24px;
-  height: 24px;
+  background-color: $color-error-50;
+  color: $color-error;
+  min-width: 2.4rem;
+  height: 2.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +39,6 @@
   margin: 0;
 }
 
-:host ::ng-deep .nav-expansion .mat-expansion-panel-body {
-  padding: 0.8rem;
-}
-
-.mat-expansion-panel-header {
+.nav-expansion .mat-expansion-panel-header {
   padding-left: 1.4rem;
 }

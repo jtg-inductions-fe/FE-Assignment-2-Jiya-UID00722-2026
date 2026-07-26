@@ -62,16 +62,19 @@
   ],
   "footer": [
     {
+      "label": "Tune",
       "icon": "tune",
-      "url": ""
+      "url": "/dashboard/tune"
     },
     {
+      "label": "Language",
       "icon": "language",
-      "url": ""
+      "url": "/dashboard/language"
     },
     {
+      "label": "Settings",
       "icon": "settings",
-      "url": ""
+      "url": "/dashboard/settings"
     }
   ]
 }

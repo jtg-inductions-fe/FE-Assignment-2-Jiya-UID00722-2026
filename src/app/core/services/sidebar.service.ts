@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SidebarService {
-  private currentSidebarSubject = new BehaviorSubject<true | false>(true);
+  private currentSidebarSubject = new BehaviorSubject<boolean>(true);
 
   currentSidebarState$ = this.currentSidebarSubject.asObservable();
 

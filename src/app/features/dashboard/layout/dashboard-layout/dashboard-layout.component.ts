@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ResponsiveService } from '@core/services/responsive.service';
 import { SidebarService } from '@core/services/sidebar.service';
-import { distinctUntilChanged, Subject, takeUntil } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -15,11 +16,9 @@ export class DashboardLayoutComponent {
   public isMobile$ = this.responsiveService.isMobile$;
   public currentSidebarState$ = this.sidebarService.currentSidebarState$;
 
-  componentDestroyed$: Subject<boolean> = new Subject();
-
   constructor() {
     this.isMobile$
-      .pipe(distinctUntilChanged(), takeUntil(this.componentDestroyed$))
+      .pipe(distinctUntilChanged(), takeUntilDestroyed())
       .subscribe(isMobile => {
         if (isMobile) {
           this.sidebarService.closeSidebar();
