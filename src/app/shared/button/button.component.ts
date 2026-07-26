@@ -20,18 +20,13 @@ export class ButtonComponent {
   @Input() color?: ButtonTypes.ButtonColor;
   @Input() icon?: string;
   @Input() label?: string;
+  @Input() buttonClass = '';
 
   @Output() btnClick = new EventEmitter<MouseEvent>();
 
   readonly ButtonTypes = ButtonTypes;
 
   constructor(private el: ElementRef) {}
-
-  get buttonClasses(): { [key: string]: boolean } {
-    return {
-      [this.el.nativeElement.className]: true,
-    };
-  }
 
   onButtonClick(event: MouseEvent): void {
     if (!this.disabled) {

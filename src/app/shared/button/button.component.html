@@ -1,4 +1,4 @@
-<div [ngSwitch]="variant">
+<ng-container [ngSwitch]="variant">
   <!-- Raised Button -->
 
   <button
@@ -7,7 +7,7 @@
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
@@ -20,7 +20,7 @@
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
@@ -32,59 +32,59 @@
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
 
-  <!-- 4. Icon Button -->
+  <!-- Icon Button -->
   <button
     *ngSwitchCase="ButtonTypes.ButtonVariant.icon"
     mat-icon-button
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
 
-  <!-- 5. FAB Button -->
+  <!-- FAB Button -->
   <button
     *ngSwitchCase="ButtonTypes.ButtonVariant.fab"
     mat-fab
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
 
-  <!-- 6. Mini FAB Button -->
+  <!-- Mini FAB Button -->
   <button
     *ngSwitchCase="ButtonTypes.ButtonVariant.miniFab"
     mat-mini-fab
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
 
-  <!-- 7. Basic Button (Default) -->
+  <!-- Basic Button (Default) -->
   <button
     *ngSwitchDefault
     mat-button
     [type]="type"
     [disabled]="disabled"
     [color]="color"
-    [ngClass]="buttonClasses"
+    [ngClass]="buttonClass"
     (click)="onButtonClick($event)">
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
-</div>
+</ng-container>
 
 <ng-template #buttonContentTemplate>
   <span class="button-content">
