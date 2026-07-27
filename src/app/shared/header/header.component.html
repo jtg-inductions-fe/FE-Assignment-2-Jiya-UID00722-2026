@@ -1,12 +1,22 @@
 <mat-toolbar class="header">
-  <a href="/" aria-label="Restaurant Management Home">
-    <img
-      [ngSrc]="imageUrl"
-      width="50"
-      height="50"
-      alt="Restaurant Management Logo"
-      class="header__logo" />
-  </a>
+  <div class="header__brand">
+    <app-button
+      *ngIf="(isMobile$ | async) && (currentUser$ | async)"
+      [variant]="ButtonTypes.ButtonVariant.icon"
+      icon="menu"
+      class="header__hamburger"
+      [iconSize]="ButtonTypes.IconSize.lg"
+      (btnClick)="toggleSidebar()"
+      aria-label="Toggle Sidebar"></app-button>
+    <a href="/" aria-label="Restaurant Management Home">
+      <img
+        [ngSrc]="imageUrl"
+        width="50"
+        height="50"
+        alt="Application Logo"
+        class="header__logo" />
+    </a>
+  </div>
 
   <ng-container *ngIf="currentUser$ | async as user">
     <app-button
@@ -19,8 +29,8 @@
 
     <mat-menu aria-labelledby="avatar-menu-button" #userMenu="matMenu">
       <div role="none" class="header__user-details">
-        <p>{{ user.name }}</p>
-        <p>{{ user.email }}</p>
+        <p class="mat-body-2">{{ user.name }}</p>
+        <p class="mat-body-2">{{ user.email }}</p>
       </div>
 
       <mat-divider class="header__menu-divider"></mat-divider>

@@ -1,0 +1,80 @@
+{
+  "primary": [
+    {
+      "icon": "pie_chart",
+      "label": "Overview",
+      "url": "/dashboard",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "local_dining",
+      "label": "Restaurants",
+      "url": "/restaurants",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "message",
+      "label": "Messages",
+      "url": "/messages",
+      "bubble": "1",
+      "type": "menuItem"
+    },
+    {
+      "icon": "lock",
+      "label": "Access",
+      "bubble": "",
+      "type": "menuItem",
+      "children": [
+        {
+          "icon": "pie_chart",
+          "label": "Details",
+          "url": "/access/details",
+          "bubble": "",
+          "type": "menuItem"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "icon": "list_alt",
+      "label": "My Profile",
+      "url": "/profile",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "add_to_photos",
+      "label": "Gallery",
+      "url": "/gallery",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "help_outline",
+      "label": "Help",
+      "url": "/help",
+      "type": "menuItem"
+    }
+  ],
+  "footer": [
+    {
+      "label": "Tune",
+      "icon": "tune",
+      "url": "/dashboard/tune"
+    },
+    {
+      "label": "Language",
+      "icon": "language",
+      "url": "/dashboard/language"
+    },
+    {
+      "label": "Settings",
+      "icon": "settings",
+      "url": "/dashboard/settings"
+    }
+  ]
+}

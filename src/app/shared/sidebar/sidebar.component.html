@@ -1,0 +1,31 @@
+<div class="sidebar-wrapper">
+  <ng-container *ngIf="menuItems$ | async as navigationData">
+    <div class="menu-scroll-area">
+      <!-- Primary -->
+      <mat-nav-list>
+        <ng-container *ngFor="let item of navigationData.primary">
+          <ng-container [ngSwitch]="item.type">
+            <app-menu-item *ngSwitchCase="MenuItemType.menuItem" [item]="item">
+            </app-menu-item>
+
+            <mat-divider
+              *ngSwitchCase="MenuItemType.divider"
+              class="section-divider">
+            </mat-divider>
+          </ng-container>
+        </ng-container>
+      </mat-nav-list>
+    </div>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <a
+        *ngFor="let item of navigationData.footer"
+        mat-icon-button
+        [routerLink]="item.url || null"
+        class="footer-btn">
+        <mat-icon>{{ item.icon }}</mat-icon>
+      </a>
+    </div>
+  </ng-container>
+</div>

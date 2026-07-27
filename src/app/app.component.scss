@@ -1,3 +1,15 @@
-.app-layout {
-  height: calc(100vh - 6.4rem);
+.layout {
+  height: 100vh;
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__content {
+    flex-grow: 1;
+    overflow: auto;
+  }
 }

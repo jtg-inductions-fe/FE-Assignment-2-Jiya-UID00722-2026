@@ -1,0 +1,10 @@
+@use 'abstracts/variables' as *;
+
+.dashboard-layout {
+  height: 100%;
+
+  &__sidebar {
+    width: 25rem;
+    border-right: 1px solid $color-border;
+  }
+}

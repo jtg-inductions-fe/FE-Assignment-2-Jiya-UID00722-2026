@@ -4,9 +4,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 6.4rem;
   background-color: $color-background;
   border-bottom: 1px solid $color-border;
+
+  &__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__hamburger {
+    padding: 0;
+  }
 
   &__logo {
     width: 3.5rem;
@@ -16,7 +25,6 @@
 
   &__user-details {
     padding: 1rem 2rem;
-    font-size: 1.4rem;
   }
 
   &__menu-divider {

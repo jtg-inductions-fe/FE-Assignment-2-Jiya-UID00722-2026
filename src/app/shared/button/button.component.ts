@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ElementRef,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import * as ButtonTypes from '@shared/button/button.types';
 
 @Component({
@@ -17,6 +11,7 @@ export class ButtonComponent {
   @Input() type = ButtonTypes.ButtonType.button;
   @Input() disabled = false;
   @Input() iconPosition = ButtonTypes.IconPosition.prefix;
+  @Input() iconSize = ButtonTypes.IconSize.md;
   @Input() color?: ButtonTypes.ButtonColor;
   @Input() icon?: string;
   @Input() label?: string;
@@ -25,8 +20,6 @@ export class ButtonComponent {
   @Output() btnClick = new EventEmitter<MouseEvent>();
 
   readonly ButtonTypes = ButtonTypes;
-
-  constructor(private el: ElementRef) {}
 
   onButtonClick(event: MouseEvent): void {
     if (!this.disabled) {

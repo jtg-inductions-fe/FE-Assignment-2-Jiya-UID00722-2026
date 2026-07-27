@@ -120,7 +120,12 @@
       *ngIf="
         icon &&
         (variant === 'icon' || variant === 'fab' || variant === 'mini-fab')
-      ">
+      "
+      [ngClass]="{
+        'icon--sm': iconSize === ButtonTypes.IconSize.sm,
+        'icon--md': iconSize === ButtonTypes.IconSize.md,
+        'icon--lg': iconSize === ButtonTypes.IconSize.lg,
+      }">
       {{ icon }}
     </mat-icon>
   </span>

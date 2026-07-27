@@ -1,0 +1,100 @@
+{
+  "primary": [
+    {
+      "icon": "pie_chart",
+      "label": "Overview",
+      "url": "/dashboard",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "local_dining",
+      "label": "Menu",
+      "url": "/menu",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "article",
+      "label": "Billing history",
+      "bubble": "",
+      "type": "menuItem",
+      "children": [
+        {
+          "icon": "app_badging",
+          "label": "Details",
+          "url": "/billing/details",
+          "bubble": "",
+          "type": "menuItem"
+        }
+      ]
+    },
+    {
+      "icon": "shopping_bag",
+      "label": "Inventory",
+      "bubble": "",
+      "type": "menuItem",
+      "children": [
+        {
+          "icon": "app_badging",
+          "label": "Details",
+          "url": "/inventory/details",
+          "bubble": "",
+          "type": "menuItem"
+        }
+      ]
+    },
+    {
+      "icon": "message",
+      "label": "Messages",
+      "url": "/messages",
+      "bubble": "1",
+      "type": "menuItem"
+    },
+    {
+      "icon": "lock",
+      "label": "Access",
+      "url": "/access",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "icon": "list_alt",
+      "label": "My Profile",
+      "url": "/profile",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "add_to_photos",
+      "label": "Gallery",
+      "url": "/gallery",
+      "bubble": "",
+      "type": "menuItem"
+    },
+    {
+      "icon": "help_outline",
+      "label": "Help",
+      "url": "/help",
+      "bubble": "",
+      "type": "menuItem"
+    }
+  ],
+  "footer": [
+    {
+      "icon": "tune",
+      "url": ""
+    },
+    {
+      "icon": "language",
+      "url": ""
+    },
+    {
+      "icon": "settings",
+      "url": ""
+    }
+  ]
+}

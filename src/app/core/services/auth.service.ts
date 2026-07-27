@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { User } from '@core/models/user.model';
+import { User, UserRole } from '@core/models/user.model';
 import { ASSETS } from '@core/constants/assets';
 
 @Injectable({
@@ -64,7 +64,7 @@ export class AuthService {
     }
   }
 
-  getUserRole(): string {
-    return this.currentUserSubject.value?.role || '';
+  getUserRole(): UserRole | undefined {
+    return this.currentUserSubject.value?.role;
   }
 }

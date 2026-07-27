@@ -1,0 +1,44 @@
+@use 'abstracts/variables' as *;
+
+.menu-icon {
+  margin-right: 3.2rem;
+}
+
+.nested-list {
+  padding-left: 0;
+  border-left: 0.2rem solid $color-border;
+}
+
+.nav-link.active-link .mat-mdc-list-item-title,
+.nav-link.active-link .mat-icon {
+  color: $color-primary;
+}
+
+.mdc-list {
+  padding: 0;
+}
+
+.nav-link .mat-mdc-list-item-icon,
+.nav-link .mat-mdc-list-item-title {
+  color: $color-background-contrast;
+}
+
+.mdc-list-item .badge,
+.mat-expansion-panel-header-title .badge {
+  background-color: $color-error-50;
+  color: $color-error;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.mat-body-1 {
+  margin: 0;
+}
+
+.nav-expansion .mat-expansion-panel-header {
+  padding-left: 1.4rem;
+}
