@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { IconRegistryService } from '@core/services/icon-registry.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,5 @@ import { IconRegistryService } from '@core/services/icon-registry.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private readonly _ = inject(IconRegistryService);
   title = 'my-app';
 }

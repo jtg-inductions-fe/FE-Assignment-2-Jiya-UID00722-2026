@@ -27,7 +27,7 @@
     gap: 1.5rem;
 
     @include media-up(md) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     }
   }
 

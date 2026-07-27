@@ -8,11 +8,9 @@ export class IconRegistryService {
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
-  ) {
-    this.registerIcons();
-  }
+  ) {}
 
-  private registerIcons(): void {
+  registerIcons(): void {
     ['twitter', 'facebook', 'github', 'website'].forEach(icon => {
       this.iconRegistry.addSvgIcon(
         icon,
