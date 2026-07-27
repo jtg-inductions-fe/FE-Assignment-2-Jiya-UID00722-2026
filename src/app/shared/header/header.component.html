@@ -1,0 +1,33 @@
+<mat-toolbar class="header">
+  <a href="/" aria-label="Restaurant Management Home">
+    <img
+      [ngSrc]="imageUrl"
+      width="50"
+      height="50"
+      alt="Restaurant Management Logo"
+      class="header__logo" />
+  </a>
+
+  <ng-container *ngIf="currentUser$ | async as user">
+    <app-button
+      id="avatar-menu-button"
+      [matMenuTriggerFor]="userMenu"
+      aria-label="User menu"
+      [variant]="ButtonTypes.ButtonVariant.avatar">
+      <app-avatar [src]="user.avatar"></app-avatar>
+    </app-button>
+
+    <mat-menu aria-labelledby="avatar-menu-button" #userMenu="matMenu">
+      <div role="none" class="header__user-details">
+        <p>{{ user.name }}</p>
+        <p>{{ user.email }}</p>
+      </div>
+
+      <mat-divider class="header__menu-divider"></mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+</mat-toolbar>

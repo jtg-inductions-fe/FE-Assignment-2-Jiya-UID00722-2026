@@ -1,0 +1,25 @@
+@use 'abstracts/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6.4rem;
+  background-color: $color-background;
+  border-bottom: 1px solid $color-border;
+
+  &__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+  }
+
+  &__user-details {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+
+  &__menu-divider {
+    border-top: 1px solid $color-border;
+  }
+}

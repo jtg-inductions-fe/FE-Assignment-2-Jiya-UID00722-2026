@@ -5,5 +5,7 @@ export const ASSETS = {
   IMAGES: {
     NOT_FOUND: '/assets/404.webp',
     BAD_REQUEST: '/assets/400.webp',
+    LOGO: '/assets/logo.svg',
+    AVATAR: '/assets/avatar_01.webp',
   },
 };

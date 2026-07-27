@@ -5,17 +5,28 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ButtonComponent } from '@shared/button/button.component';
-import { InputComponent } from '@shared/input/input.component';
 import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatSnackBarModule,
 } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { ErrorPageComponent } from '@shared/error-page/error-page.component';
+import { ButtonComponent } from '@shared/button/button.component';
+import { InputComponent } from '@shared/input/input.component';
+import { HeaderComponent } from '@shared/header/header.component';
+import { AvatarComponent } from '@shared/avatar/avatar.component';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent, ErrorPageComponent],
+  declarations: [
+    ButtonComponent,
+    InputComponent,
+    ErrorPageComponent,
+    HeaderComponent,
+    AvatarComponent,
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -26,6 +37,9 @@ import { ErrorPageComponent } from '@shared/error-page/error-page.component';
     MatSnackBarModule,
     MatCardModule,
     NgOptimizedImage,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDividerModule,
   ],
   exports: [
     ButtonComponent,
@@ -35,6 +49,8 @@ import { ErrorPageComponent } from '@shared/error-page/error-page.component';
     ReactiveFormsModule,
     NgOptimizedImage,
     ErrorPageComponent,
+    HeaderComponent,
+    AvatarComponent,
   ],
   providers: [
     {

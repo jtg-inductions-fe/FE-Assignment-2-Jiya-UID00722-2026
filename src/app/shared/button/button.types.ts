@@ -6,6 +6,7 @@ export enum ButtonVariant {
   icon = 'icon',
   fab = 'fab',
   miniFab = 'mini-fab',
+  avatar = 'avatar',
 }
 export enum ButtonColor {
   primary = 'primary',

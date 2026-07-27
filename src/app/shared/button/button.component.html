@@ -73,6 +73,18 @@
     <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
   </button>
 
+  <!-- Avatar Button -->
+
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.avatar"
+    mat-icon-button
+    [type]="type"
+    [disabled]="disabled"
+    class="avatar-button"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
   <!-- Basic Button (Default) -->
   <button
     *ngSwitchDefault

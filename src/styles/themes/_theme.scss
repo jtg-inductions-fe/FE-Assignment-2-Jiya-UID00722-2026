@@ -28,5 +28,7 @@ $my-app-theme: mat.define-light-theme(
 @include mat.button-theme($my-app-theme);
 @include mat.icon-theme($my-app-theme);
 @include mat.snack-bar-theme($my-app-theme);
+@include mat.menu-theme($my-app-theme);
+@include mat.toolbar-theme($my-app-theme);
 
 @include mat.typography-hierarchy(typography.$my-custom-typography-config);
