@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Restaurant } from '@core/models/dashboard.model';
-import * as Button from '@shared/button/button.types';
+import * as Button from '@shared/components/button/button.types';
 
 @Component({
   selector: 'app-restaurants-list',
@@ -22,10 +22,6 @@ export class RestaurantsListComponent {
   ];
 
   editRestaurant(restaurant: Restaurant): void {
-    this.router.navigate([
-      '/dashboard/restaurants',
-      'edit',
-      restaurant.restaurantId,
-    ]);
+    this.router.navigate(['/restaurants', 'edit', restaurant.restaurantId]);
   }
 }

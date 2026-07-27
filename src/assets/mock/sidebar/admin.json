@@ -10,14 +10,14 @@
     {
       "icon": "local_dining",
       "label": "Restaurants",
-      "url": "/dashboard/restaurants",
+      "url": "/restaurants",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "message",
       "label": "Messages",
-      "url": "/dashboard/messages",
+      "url": "/messages",
       "bubble": "1",
       "type": "menuItem"
     },
@@ -42,21 +42,21 @@
     {
       "icon": "list_alt",
       "label": "My Profile",
-      "url": "/dashboard/profile",
+      "url": "/profile",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "add_to_photos",
       "label": "Gallery",
-      "url": "/dashboard/gallery",
+      "url": "/gallery",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "help_outline",
       "label": "Help",
-      "url": "/dashboard/help",
+      "url": "/help",
       "type": "menuItem"
     }
   ],
@@ -64,17 +64,17 @@
     {
       "label": "Tune",
       "icon": "tune",
-      "url": "/dashboard/tune"
+      "url": "/tune"
     },
     {
       "label": "Language",
       "icon": "language",
-      "url": "/dashboard/language"
+      "url": "/language"
     },
     {
       "label": "Settings",
       "icon": "settings",
-      "url": "/dashboard/settings"
+      "url": "/settings"
     }
   ]
 }

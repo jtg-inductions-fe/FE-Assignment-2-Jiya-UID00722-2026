@@ -5,11 +5,11 @@ import { distinctUntilChanged } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-dashboard-layout',
-  templateUrl: './dashboard-layout.component.html',
-  styleUrls: ['./dashboard-layout.component.scss'],
+  selector: 'app-layout',
+  templateUrl: './app-layout.component.html',
+  styleUrls: ['./app-layout.component.scss'],
 })
-export class DashboardLayoutComponent implements OnInit {
+export class AppLayoutComponent implements OnInit {
   private responsiveService = inject(ResponsiveService);
   private sidebarService = inject(SidebarService);
 

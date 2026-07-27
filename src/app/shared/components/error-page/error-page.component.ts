@@ -2,7 +2,7 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorMap } from '@core/constants/errors';
 import { ErrorContent, HttpErrorCode } from '@core/models/errors.model';
-import * as ButtonTypes from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/components/button/button.types';
 
 @Component({
   selector: 'app-error-page',

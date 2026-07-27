@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantsService } from '@core/services/restaurants.service';
-import * as Button from '@shared/button/button.types';
+import * as Button from '@shared/components/button/button.types';
 
 @Component({
   selector: 'app-view-restaurant',
@@ -17,6 +17,6 @@ export class ViewRestaurantComponent {
   restaurants$ = this.restaurantsService.loadRestaurantsDetails();
 
   addRestaurant(): void {
-    this.router.navigate(['/dashboard/restaurants/add']);
+    this.router.navigate(['/restaurants/add']);
   }
 }

@@ -1,31 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '@features/dashboard/pages/dashboard.component';
-import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
-import { ErrorPageComponent } from '@shared/error-page/error-page.component';
-import { roleGuard } from '@core/guards/role.guard';
-import { UserRole } from '@core/models/user.model';
+import { AppLayoutComponent } from '@shared/layout/app-layout.component';
+import { ErrorPageComponent } from '@shared/components/error-page/error-page.component';
 import { HttpErrorCode } from '@core/models/errors.model';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardLayoutComponent,
+    component: AppLayoutComponent,
     children: [
       {
         path: '',
         component: DashboardComponent,
-      },
-      {
-        path: 'restaurants',
-        canMatch: [roleGuard],
-        loadChildren: () =>
-          import('../restaurants/restaurants.module').then(
-            m => m.RestaurantsModule,
-          ),
-        data: {
-          roles: [UserRole.ADMIN],
-        },
       },
       {
         path: '**',

@@ -1,7 +1,7 @@
 import { Input, Component, Output, EventEmitter } from '@angular/core';
 import { Order, Status } from '@core/models/dashboard.model';
 import { ORDER_TABLE_COLUMNS } from '@core/constants/dashboard';
-import * as Button from '@shared/button/button.types';
+import * as Button from '@shared/components/button/button.types';
 
 @Component({
   selector: 'app-orders-card',

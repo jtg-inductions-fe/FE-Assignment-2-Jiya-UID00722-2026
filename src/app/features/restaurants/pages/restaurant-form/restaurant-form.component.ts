@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Restaurant } from '@core/models/dashboard.model';
 import { RestaurantsService } from '@core/services/restaurants.service';
-import * as ButtonTypes from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/components/button/button.types';
 
 @Component({
   selector: 'app-restaurant-form',
@@ -94,6 +94,6 @@ export class RestaurantFormComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/dashboard/restaurants']);
+    this.router.navigate(['/restaurants']);
   }
 }

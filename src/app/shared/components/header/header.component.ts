@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { ASSETS } from '@core/constants/assets';
-import * as ButtonTypes from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/components/button/button.types';
 import { SidebarService } from '@core/services/sidebar.service';
 import { ResponsiveService } from '@core/services/responsive.service';
 

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { InputAppearace, InputType } from './input.types';
-import * as ButtonTypes from '@shared/button/button.types';
+import * as ButtonTypes from '@shared/components/button/button.types';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 
 @Component({

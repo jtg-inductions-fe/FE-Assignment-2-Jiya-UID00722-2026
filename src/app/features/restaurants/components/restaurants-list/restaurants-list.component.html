@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content class="restaurants">
-    <div class="restaurants__table">
-      <table mat-table [dataSource]="restaurants">
+    <div class="restaurants__table-wrapper">
+      <table mat-table [dataSource]="restaurants" class="restaurants__table">
         <ng-container matColumnDef="restaurantName">
           <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
             Restaurant Name
