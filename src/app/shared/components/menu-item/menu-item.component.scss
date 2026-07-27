@@ -1,6 +1,6 @@
 @use 'abstracts/variables' as *;
 
-.menu-icon {
+.icon {
   margin-right: 3.2rem;
 }
 
@@ -9,18 +9,22 @@
   border-left: 0.2rem solid $color-border;
 }
 
-.nav-link.active-link .mat-mdc-list-item-title,
-.nav-link.active-link .mat-icon {
+.nav__link.active-link .mat-mdc-list-item-title,
+.nav__link.active-link .mat-icon {
   color: $color-primary;
+}
+
+.nav__link .mat-mdc-list-item-icon,
+.nav__link .mat-mdc-list-item-title {
+  color: $color-background-contrast;
+}
+
+.nav__expansion .mat-expansion-panel-header {
+  padding-left: 1.4rem;
 }
 
 .mdc-list {
   padding: 0;
-}
-
-.nav-link .mat-mdc-list-item-icon,
-.nav-link .mat-mdc-list-item-title {
-  color: $color-background-contrast;
 }
 
 .mdc-list-item .badge,
@@ -37,8 +41,4 @@
 
 .mat-body-1 {
   margin: 0;
-}
-
-.nav-expansion .mat-expansion-panel-header {
-  padding-left: 1.4rem;
 }

@@ -1,0 +1,43 @@
+<mat-form-field appearance="outline" class="w-100">
+  <mat-label>{{ label }}</mat-label>
+
+  <mat-chip-grid #chipGrid>
+    <mat-chip-row
+      *ngFor="let email of emails; let i = index"
+      [editable]="true"
+      (edited)="edit(i, $event)"
+      (removed)="remove(i)"
+      color="primary"
+      highlighted>
+      {{ email }}
+
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip-row>
+
+    <input
+      [placeholder]="placeholder"
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="true"
+      [formControl]="emailControl"
+      (matChipInputTokenEnd)="add($event)" />
+  </mat-chip-grid>
+
+  <mat-hint>{{ hint }}</mat-hint>
+</mat-form-field>
+
+<ng-container
+  *ngIf="
+    emailControl.hasError('email') && emailControl.touched;
+    else ownersRequired
+  ">
+  <mat-error> Please enter a valid email address </mat-error>
+</ng-container>
+
+<ng-template #ownersRequired>
+  <mat-error *ngIf="control.hasError('required') && control.touched">
+    Owner email is required
+  </mat-error>
+</ng-template>

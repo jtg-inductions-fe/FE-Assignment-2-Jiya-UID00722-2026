@@ -7,6 +7,7 @@ export const ASSETS = {
     },
     RESTAURANTS_LIST: 'assets/mock/restaurants.json',
     RESTAURANTS: 'assets/mock/restaurants',
+    RESTAURANTS_DETAILS: 'assets/mock/restaurants-details.json',
   },
   IMAGES: {
     NOT_FOUND: '/assets/404.webp',

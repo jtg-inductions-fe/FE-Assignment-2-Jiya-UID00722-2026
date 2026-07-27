@@ -44,6 +44,8 @@ export interface RestaurantDashboard {
 export interface Restaurant {
   restaurantId: string;
   restaurantName: string;
+  address?: string;
+  owners?: string[];
 }
 
 export interface DetailsCardItem {
@@ -76,4 +78,9 @@ export interface RestaurantsResponse {
 export interface FooterLink {
   href: string;
   icon: string;
+}
+
+export enum RestaurantFormMode {
+  ADD = 'add',
+  EDIT = 'edit',
 }

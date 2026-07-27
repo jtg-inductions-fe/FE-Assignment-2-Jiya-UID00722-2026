@@ -1,0 +1,23 @@
+@use 'abstracts/mixins' as *;
+
+.view-restaurants {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 1.6rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include media-up(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.mat-headline-2 {
+  margin-bottom: 0;
+}

@@ -20,16 +20,17 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
-import { ErrorPageComponent } from '@shared/error-page/error-page.component';
-import { ButtonComponent } from '@shared/button/button.component';
-import { InputComponent } from '@shared/input/input.component';
-import { HeaderComponent } from '@shared/header/header.component';
-import { AvatarComponent } from '@shared/avatar/avatar.component';
-import { SidebarComponent } from '@shared/sidebar/sidebar.component';
-import { MenuItemComponent } from '@shared/menu-item/menu-item.component';
-import { DashboardLayoutComponent } from '@features/dashboard/layout/dashboard-layout/dashboard-layout.component';
-import { FooterComponent } from '@shared/footer/footer.component';
+import { ErrorPageComponent } from '@shared/components/error-page/error-page.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { InputComponent } from '@shared/components/input/input.component';
+import { HeaderComponent } from '@shared/components/header/header.component';
+import { AvatarComponent } from '@shared/components/avatar/avatar.component';
+import { SidebarComponent } from '@shared/components/sidebar/sidebar.component';
+import { MenuItemComponent } from '@shared/components/menu-item/menu-item.component';
+import { AppLayoutComponent } from '@shared/layout/app-layout.component';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { InputEmailChipsComponent } from '@shared/components/input-email-chips/input-email-chips.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +41,9 @@ import { MatChipsModule } from '@angular/material/chips';
     AvatarComponent,
     SidebarComponent,
     MenuItemComponent,
-    DashboardLayoutComponent,
+    AppLayoutComponent,
     FooterComponent,
+    InputEmailChipsComponent,
   ],
   imports: [
     CommonModule,
@@ -86,6 +88,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatDividerModule,
     MatChipsModule,
+    InputEmailChipsComponent,
   ],
   providers: [
     {

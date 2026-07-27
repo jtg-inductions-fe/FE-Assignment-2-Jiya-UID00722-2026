@@ -1,0 +1,18 @@
+<div class="view-restaurants">
+  <div class="view-restaurants__header">
+    <div>
+      <h1 class="mat-headline-2">Restaurants</h1>
+      <p>Manage partner restaurants and ownership list.</p>
+    </div>
+    <app-button
+      [variant]="Button.ButtonVariant.raised"
+      [color]="Button.ButtonColor.primary"
+      icon="add"
+      buttonClass="responsive-w-100"
+      (click)="addRestaurant()">
+      Add Restaurant
+    </app-button>
+  </div>
+  <app-restaurants-list
+    [restaurants]="(restaurants$ | async) ?? []"></app-restaurants-list>
+</div>

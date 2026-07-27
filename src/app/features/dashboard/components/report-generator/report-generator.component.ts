@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as Button from '@shared/button/button.types';
+import * as Button from '@shared/components/button/button.types';
 @Component({
   selector: 'app-report-generator',
   templateUrl: './report-generator.component.html',
