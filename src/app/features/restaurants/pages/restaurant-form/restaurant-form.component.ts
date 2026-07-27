@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant, RestaurantFormMode } from '@core/models/dashboard.model';
 import { RestaurantsService } from '@core/services/restaurants.service';
-import { requiredArray } from '@core/validators/validators';
+import { notEmptyFormArrayValidator } from '@core/validators/validators';
 import * as ButtonTypes from '@shared/components/button/button.types';
 
 @Component({
@@ -26,7 +26,7 @@ export class RestaurantFormComponent implements OnInit {
     restaurantName: ['', Validators.required],
     address: ['', Validators.required],
     owners: this.fb.nonNullable.control<string[]>([], {
-      validators: [requiredArray],
+      validators: [notEmptyFormArrayValidator],
     }),
   });
 
