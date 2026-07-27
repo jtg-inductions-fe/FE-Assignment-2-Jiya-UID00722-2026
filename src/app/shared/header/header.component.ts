@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter } from 'rxjs';
+import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { ASSETS } from '@core/constants/assets';
 import * as ButtonTypes from '@shared/button/button.types';
@@ -21,27 +20,10 @@ export class HeaderComponent {
   readonly ButtonTypes = ButtonTypes;
   imageUrl = ASSETS.IMAGES.LOGO;
 
-  private showSidebarToggleSubject = new BehaviorSubject<boolean>(
-    this.isDashboardRoute(),
-  );
-
   currentUser$ = this.authService.currentUser$;
 
-  public currentSidebarState$ = this.sidebarService.currentSidebarState$;
-  public isMobile$ = this.responsiveService.isMobile$;
-  showSidebarToggle$ = this.showSidebarToggleSubject.asObservable();
-
-  constructor() {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.showSidebarToggleSubject.next(this.isDashboardRoute());
-      });
-  }
-
-  private isDashboardRoute(): boolean {
-    return this.router.url.startsWith('/dashboard');
-  }
+  currentSidebarState$ = this.sidebarService.currentSidebarState$;
+  isMobile$ = this.responsiveService.isMobile$;
 
   toggleSidebar(): void {
     this.sidebarService.toggleSidebar();

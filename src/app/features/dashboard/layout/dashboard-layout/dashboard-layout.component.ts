@@ -13,18 +13,21 @@ export class DashboardLayoutComponent implements OnInit {
   private responsiveService = inject(ResponsiveService);
   private sidebarService = inject(SidebarService);
 
-  public isMobile$ = this.responsiveService.isMobile$;
-  public currentSidebarState$ = this.sidebarService.currentSidebarState$;
+  isMobile$ = this.responsiveService.isMobile$;
+  currentSidebarState$ = this.sidebarService.currentSidebarState$;
+
+  isMobileWindow$ = this.isMobile$.pipe(
+    distinctUntilChanged(),
+    takeUntilDestroyed(),
+  );
 
   ngOnInit(): void {
-    this.isMobile$
-      .pipe(distinctUntilChanged(), takeUntilDestroyed())
-      .subscribe(isMobile => {
-        if (isMobile) {
-          this.sidebarService.closeSidebar();
-        } else {
-          this.sidebarService.openSidebar();
-        }
-      });
+    this.isMobileWindow$.subscribe(isMobile => {
+      if (isMobile) {
+        this.sidebarService.closeSidebar();
+      } else {
+        this.sidebarService.openSidebar();
+      }
+    });
   }
 }

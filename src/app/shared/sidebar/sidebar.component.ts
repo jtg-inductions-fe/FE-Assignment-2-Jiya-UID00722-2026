@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
 
   readonly MenuItemType = MenuItemType;
 
-  public menuItems$!: Observable<MenuConfig>;
+  menuItems$!: Observable<MenuConfig>;
 
   ngOnInit(): void {
     this.loadMenuItems();

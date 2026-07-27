@@ -1,7 +1,7 @@
 <mat-toolbar class="header">
   <div class="header__brand">
     <app-button
-      *ngIf="(isMobile$ | async) && (showSidebarToggle$ | async)"
+      *ngIf="(isMobile$ | async) && (currentUser$ | async)"
       [variant]="ButtonTypes.ButtonVariant.icon"
       icon="menu"
       class="header__hamburger"
