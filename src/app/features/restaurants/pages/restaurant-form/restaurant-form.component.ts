@@ -1,14 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  ValidationErrors,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { Restaurant } from '@core/models/dashboard.model';
+import { Restaurant, RestaurantFormMode } from '@core/models/dashboard.model';
 import { RestaurantsService } from '@core/services/restaurants.service';
+import { requiredArray } from '@core/validators/validators';
 import * as ButtonTypes from '@shared/components/button/button.types';
 
 @Component({
@@ -24,20 +19,14 @@ export class RestaurantFormComponent implements OnInit {
 
   readonly ButtonTypes = ButtonTypes;
 
-  mode!: 'add' | 'edit';
+  mode!: RestaurantFormMode;
   restaurantId = '';
-
-  requiredArray(control: AbstractControl): ValidationErrors | null {
-    return Array.isArray(control.value) && control.value.length > 0
-      ? null
-      : { required: true };
-  }
 
   form = this.fb.group({
     restaurantName: ['', Validators.required],
     address: ['', Validators.required],
     owners: this.fb.nonNullable.control<string[]>([], {
-      validators: [this.requiredArray],
+      validators: [requiredArray],
     }),
   });
 
@@ -79,12 +68,14 @@ export class RestaurantFormComponent implements OnInit {
 
     const restaurant: Restaurant = {
       restaurantId:
-        this.mode === 'add' ? crypto.randomUUID() : this.restaurantId,
+        this.mode === RestaurantFormMode.ADD
+          ? crypto.randomUUID()
+          : this.restaurantId,
 
       ...this.form.getRawValue(),
     } as Restaurant;
 
-    if (this.mode === 'add') {
+    if (this.mode === RestaurantFormMode.ADD) {
       this.restaurantService.addRestaurant(restaurant);
     } else {
       this.restaurantService.updateRestaurant(restaurant);

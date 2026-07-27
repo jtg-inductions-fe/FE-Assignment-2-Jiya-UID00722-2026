@@ -1,9 +1,9 @@
 <ng-container *ngIf="item.children?.length; else leaf">
-  <mat-expansion-panel class="nav-expansion" [class.mat-elevation-z0]="true">
+  <mat-expansion-panel class="nav__expansion" [class.mat-elevation-z0]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
-        <span class="menu-label mat-body-1">{{ item.label }}</span>
+        <mat-icon class="icon">{{ item.icon }}</mat-icon>
+        <span class="mat-body-1">{{ item.label }}</span>
         <span class="badge" *ngIf="item.bubble">
           {{ item.bubble }}
         </span>
@@ -25,7 +25,7 @@
     [routerLink]="item.url"
     routerLinkActive="active-link"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="nav-link">
+    class="nav__link">
     <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
     <span matListItemTitle class="mat-body-1">{{ item.label }}</span>
 
