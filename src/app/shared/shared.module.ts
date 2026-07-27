@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,9 +12,10 @@ import {
   MatSnackBarModule,
 } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent],
+  declarations: [ButtonComponent, InputComponent, ErrorPageComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -24,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatCardModule,
+    NgOptimizedImage,
   ],
   exports: [
     ButtonComponent,
@@ -31,6 +33,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSnackBarModule,
     MatCardModule,
     ReactiveFormsModule,
+    NgOptimizedImage,
+    ErrorPageComponent,
   ],
   providers: [
     {

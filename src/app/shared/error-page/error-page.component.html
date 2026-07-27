@@ -1,0 +1,23 @@
+<section class="error-page">
+  <img
+    *ngIf="errorContent.imgUrl"
+    [ngSrc]="errorContent.imgUrl"
+    width="400"
+    height="200"
+    priority
+    alt="Page Not Found"
+    class="error-page__image" />
+
+  <h2 class="mat-headline-2 error-page__title">{{ errorContent.title }}</h2>
+
+  <p class="mat-body-2 error-page__description">
+    {{ errorContent.subtitle }}
+  </p>
+  <app-button
+    [type]="ButtonTypes.ButtonType.button"
+    [variant]="ButtonTypes.ButtonVariant.flat"
+    [color]="ButtonTypes.ButtonColor.primary"
+    (click)="goBack()">
+    Go back home
+  </app-button>
+</section>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from '@core/guards/auth.guard';
 import { guestGuard } from '@core/guards/guest.guard';
+import { HttpErrorCode } from '@core/models/errors.model';
+import { ErrorPageComponent } from '@shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,10 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    component: ErrorPageComponent,
+    data: {
+      variant: HttpErrorCode.NotFound,
+    },
   },
 ];
 
