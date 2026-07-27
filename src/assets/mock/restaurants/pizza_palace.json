@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "revenue": "$118.0",
+    "totalOrders": 5,
+    "completedOrders": 3,
+    "activeRestaurants": 2
+  },
+  "topCustomers": [
+    {
+      "name": "Albert Wright",
+      "email": "albertwright@demo.com",
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_05.webp"
+    },
+    {
+      "name": "Karen Nelson",
+      "email": "karennelson@demo.com",
+      "orderAmount": "$58",
+      "avatar": "assets/avatar_01.webp"
+    },
+    {
+      "name": "Dave Miller",
+      "email": "davemiller@demo.com",
+      "orderAmount": "$48",
+      "avatar": "assets/avatar_02.webp"
+    },
+    {
+      "name": "Lana Byrd",
+      "email": "lanabyrd@demo.com",
+      "orderAmount": "$42",
+      "avatar": "assets/avatar_03.webp"
+    },
+    {
+      "name": "Neil Sims",
+      "email": "neilsims@demo.com",
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_04.webp"
+    },
+    {
+      "name": "Albert Wright",
+      "email": "albertwright@demo.com",
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_05.webp"
+    },
+    {
+      "name": "Karen Nelson",
+      "email": "karennelson@demo.com",
+      "orderAmount": "$58",
+      "avatar": "assets/avatar_01.webp"
+    },
+    {
+      "name": "Dave Miller",
+      "email": "davemiller@demo.com",
+      "orderAmount": "$48",
+      "avatar": "assets/avatar_02.webp"
+    },
+    {
+      "name": "Lana Byrd",
+      "email": "lanabyrd@demo.com",
+      "orderAmount": "$42",
+      "avatar": "assets/avatar_03.webp"
+    },
+    {
+      "name": "Neil Sims",
+      "email": "neilsims@demo.com",
+      "orderAmount": "$60",
+      "avatar": "assets/avatar_04.webp"
+    }
+  ],
+  "topSellingDishes": [
+    {
+      "dishName": "Margherita Pizza",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Soda",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Truffle Pasta",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Garlic Bread",
+      "numberOfOrders": 2
+    },
+    {
+      "dishName": "Pepperoni Pizza",
+      "numberOfOrders": 1
+    },
+    {
+      "dishName": "Margherita Pizza",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Soda",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Truffle Pasta",
+      "numberOfOrders": 3
+    },
+    {
+      "dishName": "Garlic Bread",
+      "numberOfOrders": 2
+    },
+    {
+      "dishName": "Pepperoni Pizza",
+      "numberOfOrders": 1
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "ORD-1002",
+      "restaurantName": "Pizza Palace",
+      "customerName": "Bonnie Green",
+      "items": "Truffle Pasta, Soda",
+      "amount": "$28.0",
+      "status": "Pending"
+    },
+    {
+      "orderId": "ORD-1007",
+      "restaurantName": "Pizza Palace",
+      "customerName": "Dave Miller",
+      "items": "Margherita Pizza, Pepperoni Pizza",
+      "amount": "$48.0",
+      "status": "Pending"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { InputAppearace, InputType } from './input.types';
 import * as ButtonTypes from '@shared/button/button.types';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-input',
@@ -21,6 +22,7 @@ export class InputComponent {
   @Input() prefixIcon?: string;
   @Input() suffixIcon?: string;
   @Input() readonly = false;
+  @Input() autocomplete?: MatAutocomplete;
 
   hidePassword = true;
 

@@ -1,0 +1,25 @@
+<mat-card class="report" appearance="outlined">
+  <mat-card-content class="report__content">
+    <div class="report__details">
+      <p class="mat-body-1">Report Generator</p>
+      <p>Generate performance reports for the selected restaurant context</p>
+    </div>
+
+    <div class="report__actions">
+      <app-button
+        icon="bar_chart"
+        [variant]="Button.ButtonVariant.stroked"
+        [color]="Button.ButtonColor.primary"
+        buttonClass="mw-100"
+        >Top 10 Ordered Items</app-button
+      >
+      <app-button
+        [variant]="Button.ButtonVariant.raised"
+        [color]="Button.ButtonColor.primary"
+        icon="group_work"
+        buttonClass="mw-100"
+        >Frequently Bought Together</app-button
+      >
+    </div>
+  </mat-card-content>
+</mat-card>

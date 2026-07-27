@@ -1,1 +1,70 @@
-<p>overview</p>
+<div class="overview">
+  <div class="overview__header">
+    <div class="overview__title">
+      <h1 class="mat-headline-2">Overview Dashboard</h1>
+      <p class="body-2" *ngIf="isRestaurantOwner; else isAdmin">
+        Welcome back, restaurant partner! Track your orders and performance
+        details.
+      </p>
+      <ng-template #isAdmin>
+        <p class="body-2">
+          System administrator overview panel. Impersonate owners or view
+          aggregate metrics.
+        </p>
+      </ng-template>
+    </div>
+    <form *ngIf="!isRestaurantOwner" (ngSubmit)="$event.preventDefault()">
+      <app-input
+        [control]="restaurantControl"
+        label="View Dashboard As"
+        [autocomplete]="auto">
+      </app-input>
+
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        [displayWith]="displayFn"
+        (optionSelected)="onRestaurantSelected($event.option.value)">
+        <mat-option
+          *ngFor="let restaurant of filteredRestaurants | async"
+          [value]="restaurant">
+          {{ restaurant.restaurantName }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+
+  <div class="overview__stats">
+    <app-stat-card
+      *ngFor="let item of statsCards"
+      [title]="item.title"
+      [value]="stats[item.key].toString()"
+      [icon]="item.icon"
+      [variant]="item.variant"
+      class="overview__stat">
+    </app-stat-card>
+  </div>
+
+  <app-report-generator></app-report-generator>
+
+  <div class="overview__details">
+    <app-details-card
+      [details]="topCustomerItems"
+      label="Top Customers"
+      class="overview__details-card"></app-details-card>
+
+    <app-details-card
+      [details]="topSellingDishItems"
+      label="Top Selling Dishes"
+      class="overview__details-card"></app-details-card>
+  </div>
+
+  <app-orders-card
+    *ngIf="isRestaurantOwner && orders.length"
+    [orders]="orders"
+    (orderAccepted)="acceptOrder($event)"
+    (orderRejected)="rejectOrder($event)"
+    (orderCompleted)="completeOrder($event)">
+  </app-orders-card>
+
+  <app-footer></app-footer>
+</div>

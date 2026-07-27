@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-content class="footer">
+    <p class="body-2 footer__text">
+      © {{ today | date: 'yyyy' }} Themesberg, LLC. All rights reserved.
+    </p>
+    <div class="footer__socials">
+      <a
+        *ngFor="let link of footerLinks"
+        [href]="link.href"
+        target="_blank"
+        [attr.aria-label]="link.icon">
+        <mat-icon [svgIcon]="link.icon" aria-hidden="true"></mat-icon>
+      </a>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,27 @@
+@use 'abstracts/mixins' as *;
+
+.report {
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include media-up(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+
+    @include media-up(lg) {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+}

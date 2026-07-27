@@ -11,6 +11,7 @@
     "password": "owner123",
     "role": "RESTAURANT_OWNER",
     "name": "Restaurant Owner",
-    "avatar": "assets/avatar_02.webp"
+    "avatar": "assets/avatar_02.webp",
+    "restaurantId": "pizza_palace"
   }
 ]

@@ -10,14 +10,14 @@
     {
       "icon": "local_dining",
       "label": "Restaurants",
-      "url": "/restaurants",
+      "url": "/dashboard/restaurants",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "message",
       "label": "Messages",
-      "url": "/messages",
+      "url": "/dashboard/messages",
       "bubble": "1",
       "type": "menuItem"
     },
@@ -42,21 +42,21 @@
     {
       "icon": "list_alt",
       "label": "My Profile",
-      "url": "/profile",
+      "url": "/dashboard/profile",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "add_to_photos",
       "label": "Gallery",
-      "url": "/gallery",
+      "url": "/dashboard/gallery",
       "bubble": "",
       "type": "menuItem"
     },
     {
       "icon": "help_outline",
       "label": "Help",
-      "url": "/help",
+      "url": "/dashboard/help",
       "type": "menuItem"
     }
   ],

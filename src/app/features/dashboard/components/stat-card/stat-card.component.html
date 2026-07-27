@@ -1,0 +1,20 @@
+<mat-card class="stat-card" appearance="outlined">
+  <mat-card-content class="stat-card__content">
+    <div class="stat-card__details">
+      <span class="mat-subtitle-1 stat-card__title">
+        {{ title }}
+      </span>
+
+      <span class="stat-card__value mat-headline-5">
+        {{ value }}
+      </span>
+    </div>
+    <div
+      class="stat-card__icon-bg"
+      [ngClass]="'stat-card__icon-bg--' + variant">
+      <mat-icon class="stat-card__icon">
+        {{ icon }}
+      </mat-icon>
+    </div>
+  </mat-card-content>
+</mat-card>

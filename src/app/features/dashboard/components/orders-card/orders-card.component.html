@@ -1,0 +1,113 @@
+<mat-card>
+  <mat-card-content class="orders-card">
+    <div class="orders-card__header">
+      <span class="mat-headline-5 orders-card__title">Active Orders</span>
+      <span
+        >Manage pending and accepted orders directly from your dashboard.</span
+      >
+    </div>
+    <div class="orders-card__table-wrapper">
+      <table mat-table [dataSource]="orders" class="orders-card__table">
+        <ng-container matColumnDef="orderId">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            ORDER ID
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-2">
+            {{ element.orderId }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="restaurantName">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            RESTAURANT
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-subtitle-2">
+            {{ element.restaurantName }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            CUSTOMER
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-subtitle-2">
+            {{ element.customerName }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="items">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            ITEMS
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-subtitle-2">
+            {{ element.items }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            AMOUNT
+          </th>
+          <td mat-cell *matCellDef="let element" class="mat-body-2">
+            {{ element.amount }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            STATUS
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-basic-chip
+              highlighted
+              class="orders-card__chip mat-subtitle-1"
+              >{{ element.status }}</mat-basic-chip
+            >
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="mat-subtitle-1">
+            ACTIONS
+          </th>
+          <td mat-cell *matCellDef="let order" class="orders-card__actions">
+            <ng-container
+              *ngIf="
+                order.status === Status.Pending ||
+                order.status === Status.Accepted
+              ">
+              <app-button
+                icon="close"
+                [variant]="Button.ButtonVariant.stroked"
+                [color]="Button.ButtonColor.primary"
+                (click)="reject(order)">
+                Reject
+              </app-button>
+            </ng-container>
+
+            <app-button
+              *ngIf="order.status === Status.Pending"
+              icon="check"
+              [variant]="Button.ButtonVariant.raised"
+              [color]="Button.ButtonColor.primary"
+              (click)="accept(order)">
+              Accept
+            </app-button>
+
+            <app-button
+              *ngIf="order.status === Status.Accepted"
+              icon="check"
+              [variant]="Button.ButtonVariant.raised"
+              [color]="Button.ButtonColor.primary"
+              (click)="complete(order)">
+              Complete
+            </app-button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-content class="details">
+    <span class="mat-headline-5">{{ label }}</span>
+
+    <div *ngFor="let item of details; let last = last">
+      <div class="details__card">
+        <div class="details__content">
+          <app-avatar
+            *ngIf="item.image"
+            [alt]="item.title"
+            [src]="item.image"
+            width="50"
+            height="50"
+            class="header__logo"></app-avatar>
+
+          <div>
+            <p class="mat-body-1 details__title">{{ item.title }}</p>
+            <p class="mat-subtitle-2" *ngIf="item.subtitle">
+              {{ item.subtitle }}
+            </p>
+          </div>
+        </div>
+
+        <p class="mat-body-1">{{ item.value }}</p>
+      </div>
+
+      <mat-divider *ngIf="!last"></mat-divider>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,24 @@
+@use 'abstracts/mixins' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 4.8rem;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include media-up(md) {
+    flex-direction: row;
+  }
+
+  &__text {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 2.4rem;
+  }
+}
