@@ -1,0 +1,115 @@
+<ng-container [ngSwitch]="variant">
+  <!-- Raised Button -->
+
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.raised"
+    mat-raised-button
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- Flat Button -->
+
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.flat"
+    mat-flat-button
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- Stroked Button -->
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.stroked"
+    mat-stroked-button
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- Icon Button -->
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.icon"
+    mat-icon-button
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- FAB Button -->
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.fab"
+    mat-fab
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- Mini FAB Button -->
+  <button
+    *ngSwitchCase="ButtonTypes.ButtonVariant.miniFab"
+    mat-mini-fab
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+
+  <!-- Basic Button (Default) -->
+  <button
+    *ngSwitchDefault
+    mat-button
+    [type]="type"
+    [disabled]="disabled"
+    [color]="color"
+    [ngClass]="buttonClass"
+    (click)="onButtonClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContentTemplate"></ng-container>
+  </button>
+</ng-container>
+
+<ng-template #buttonContentTemplate>
+  <span class="button-content">
+    <mat-icon *ngIf="icon && iconPosition === 'prefix' && variant !== 'icon'">
+      {{ icon }}
+    </mat-icon>
+
+    <span *ngIf="label && variant !== 'icon'">
+      {{ label }}
+    </span>
+
+    <ng-container *ngIf="!label && variant !== 'icon'">
+      <ng-content></ng-content>
+    </ng-container>
+
+    <mat-icon *ngIf="icon && iconPosition === 'suffix' && variant !== 'icon'">
+      {{ icon }}
+    </mat-icon>
+
+    <mat-icon
+      *ngIf="
+        icon &&
+        (variant === 'icon' || variant === 'fab' || variant === 'mini-fab')
+      ">
+      {{ icon }}
+    </mat-icon>
+  </span>
+</ng-template>

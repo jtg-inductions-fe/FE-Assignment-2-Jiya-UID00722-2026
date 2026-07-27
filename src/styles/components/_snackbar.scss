@@ -1,0 +1,21 @@
+@use 'abstracts/variables' as *;
+
+$success-bg: $color-primary;
+$success-text: $color-primary-contrast;
+
+$error-bg: $color-error;
+$error-text: $color-error-contrast;
+
+.success {
+  --mdc-snackbar-container-color: #{$success-bg};
+  --mat-snack-bar-button-color: #{$success-text};
+  --mdc-snackbar-supporting-text-color: #{$success-text};
+  color: #{$success-text};
+}
+
+.error {
+  --mdc-snackbar-container-color: #{$error-bg};
+  --mat-snack-bar-button-color: #{$error-text};
+  --mdc-snackbar-supporting-text-color: #{$error-text};
+  color: #{$error-text};
+}
