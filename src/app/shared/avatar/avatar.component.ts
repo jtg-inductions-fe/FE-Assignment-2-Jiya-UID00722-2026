@@ -1,6 +1,6 @@
 import { Input, Component, OnChanges } from '@angular/core';
 import { ASSETS } from '@core/constants/assets';
-import { AavatarSize } from './avatar.type';
+import { AvatarSize } from './avatar.type';
 
 @Component({
   selector: 'app-avatar',
@@ -10,8 +10,10 @@ import { AavatarSize } from './avatar.type';
 export class AvatarComponent implements OnChanges {
   @Input({ required: true }) src!: string;
   @Input() alt = 'Avatar';
-  @Input() size = AavatarSize.md;
+  @Input() size = AvatarSize.md;
   @Input() fallback = ASSETS.IMAGES.AVATAR;
+
+  readonly AvatarSize = AvatarSize;
   currentSrc!: string;
 
   ngOnChanges(): void {

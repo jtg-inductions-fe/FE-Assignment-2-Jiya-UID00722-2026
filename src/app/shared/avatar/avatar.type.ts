@@ -1,4 +1,4 @@
-export enum AavatarSize {
+export enum AvatarSize {
   sm = 'sm',
   md = 'md',
   lg = 'lg',

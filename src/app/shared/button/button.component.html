@@ -122,9 +122,9 @@
         (variant === 'icon' || variant === 'fab' || variant === 'mini-fab')
       "
       [ngClass]="{
-        'icon--sm': iconSize === 'sm',
-        'icon--md': iconSize === 'md',
-        'icon--lg': iconSize === 'lg',
+        'icon--sm': iconSize === ButtonTypes.IconSize.sm,
+        'icon--md': iconSize === ButtonTypes.IconSize.md,
+        'icon--lg': iconSize === ButtonTypes.IconSize.lg,
       }">
       {{ icon }}
     </mat-icon>
