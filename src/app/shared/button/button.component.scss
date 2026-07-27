@@ -1,0 +1,17 @@
+@use 'abstracts/variables' as *;
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  vertical-align: middle;
+}
+
+.mat-mdc-outlined-button {
+  --mdc-outlined-button-outline-color: 1px solid currentColor;
+}
+
+.mat-mdc-raised-button {
+  --mdc-protected-button-container-elevation: #{$box-shadow};
+}

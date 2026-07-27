@@ -1,0 +1,5 @@
+@use 'abstracts/variables' as *;
+
+.mat-mdc-card {
+  --mdc-elevated-card-container-elevation: #{$box-shadow};
+}
